@@ -1,5 +1,6 @@
 package eiffle.PandaMeiyaReykaSuki.demo;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 import com.amazonaws.services.lambda.runtime.Context;
@@ -26,17 +27,17 @@ public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,C
 
   
     
-    boolean createChoice(int numMember, int numAlt) throws Exception{
+    boolean createChoice(int limitMember, int numAlt, String description, String localDateTime) throws Exception{
     	if (logger != null) { logger.log("in createChoice"); }
     	ChoiceDAO dao = new ChoiceDAO();
     	
-    	UUID choiceID = UUID.randomUUID();
-    	boolean exist = dao.getChoice(choiceID.toString());
+    	String choiceID = UUID.randomUUID().toString();
+//    	boolean exist = dao.getChoice(choiceID);
     	
-    	if(exist) {return false;}
+//    	if(exist) {return false;}
     	
-    	else if(numMember < 2 && numAlt > 5) {
-    		Choice choice = new Choice(numMember, numAlt);
+    	if(numAlt < 2 && numAlt > 5) {
+    		Choice choice = new Choice(choiceID, limitMember, numAlt, description,localDateTime);
     		return dao.addChoice(choice);
     	} else {
     		return false;
@@ -53,7 +54,7 @@ public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,C
 		CreateChoiceResponse response;
 		
 		try {
-			if(createChoice(req.numMember, req.numAlt)) {
+			if(createChoice(req.limitMember, req.numAlt, req.description, req.localDateTime)) {
 				response = new CreateChoiceResponse(req.choiceID);
 			} else {
 				response = new CreateChoiceResponse(req.choiceID, 422);
