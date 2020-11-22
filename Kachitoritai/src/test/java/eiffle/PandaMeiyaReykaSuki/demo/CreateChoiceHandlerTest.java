@@ -36,7 +36,7 @@ public class CreateChoiceHandlerTest extends LambdaTest{
     	
     	CreateChoiceRequest ccr = new CreateChoiceRequest(
     			"testChoiceFromEcliseWithID100",
-    			10,
+    			3,
     			3,
     			"faketime",
     			"description test");

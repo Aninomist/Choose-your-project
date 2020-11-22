@@ -27,29 +27,33 @@ public class ChoiceDAO {
 	
 	public boolean addChoice(Choice choice) throws Exception {
 		try {
+			System.out.println("prep statement 1 where choise = ");
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE ChoiceID = ?;");
 			ps.setString(1, choice.choiceID);
 			ResultSet resultSet = ps.executeQuery();
 			
-			while (resultSet.next()) {            
+			while (resultSet.next()) {
+				System.out.println("exist in db");
 				return false;
 	        }
 			
-			ps = conn.prepareStatement("INSERT INTO " + tblName + " "
-					+ "(choiceID, numberOfAlternative, description, userLimit, dateCreated, userRegistered, completed) "
-					+ "values(?,?,?,?,?,?,?);");
+			
+			System.out.println("prep statement 2 to insert");
+			ps = conn.prepareStatement("INSERT INTO " + tblName
+					+ " (choiceID, description, numberOfAlternative, dateCreated, userLimit, userRegistered, completed) values(?,?,?,?,?,?,FALSE);");
 			ps.setString(1,  choice.choiceID);
-            ps.setDouble(2,  choice.numAlt);
-            ps.setString(3,  choice.description);
-            ps.setInt(4,  choice.limitMember);
-            ps.setString(5,  choice.localDateTime);
+			ps.setString(2,  choice.description);
+            ps.setInt(3,  choice.numAlt);
+            ps.setString(4,  choice.localDateTime);
+            ps.setInt(5,  choice.limitMember);
             ps.setInt(6, 0);
-            ps.setBoolean(7, false);
+            System.out.println("etatement 2 execute:" + ps);
             ps.execute();
-            return true;
-			 
+            return true;	 
+            
 		} catch (Exception e) {
-			throw new Exception("Falied to inser Choice: " + e.getMessage());
+			System.out.println("exception caught in addChoice");
+			throw new Exception("Falied to insert Choice: " + e.getMessage());
 		}
 
 	}

@@ -36,10 +36,16 @@ public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,C
     	
 //    	if(exist) {return false;}
     	
-    	if(numAlt < 2 && numAlt > 5) {
+    	
+    	System.out.println("dao acquired in Create Choice");
+    	if(numAlt > 2 && numAlt < 5) {
     		Choice choice = new Choice(choiceID, limitMember, numAlt, description,localDateTime);
-    		return dao.addChoice(choice);
+    		System.out.println("about to return addChoice(choice");
+    		boolean status = dao.addChoice(choice);
+    		System.out.println("choice added");
+    		return status;
     	} else {
+    		System.out.println("about to return false");
     		return false;
     	}	
     }

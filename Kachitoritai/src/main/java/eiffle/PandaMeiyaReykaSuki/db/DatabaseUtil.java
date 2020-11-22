@@ -60,6 +60,7 @@ public class DatabaseUtil {
 					jdbcTag + rdsMySqlDatabaseUrl + ":" + rdsMySqlDatabasePort + "/" + schemaName + multiQueries,
 					dbUsername,
 					dbPassword);
+			System.out.println("Connection establised");
 			return conn;
 		} catch (Exception ex) {
 			System.err.println("DB-ERROR:" + schemaName + "," + dbUsername + "," + dbPassword + "," + rdsMySqlDatabaseUrl);
