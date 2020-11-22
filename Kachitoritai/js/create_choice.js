@@ -1,4 +1,4 @@
-function processCreateResponse(arg1, arg2, result) {
+function processCreateResponse(result) {
     // Can grab any DIV or SPAN HTML element and can then manipulate its
     // contents dynamically via javascript
     console.log("result:" + result);
@@ -7,21 +7,20 @@ function processCreateResponse(arg1, arg2, result) {
     var computation = js["result"];
 
     // Update computation result
-    document.addForm.result.value = computation
+    document.createChoice.result.value = computation
 }
 
 function handleCreateClick(e) {
     //document.getElementById("result").value = "This is";
-    document.addForm.result.value = "success";
+    document.createChoice.result.value = "success";
     var choiceID = "NewChoice"
-    var numAlt = form.numAlt.value;
-    var numMember = form.numMember.value;
-    var description = form.description.value;
+    var numAlt = document.createChoice.numAlt.value;
+    var numMember = document.createChoice.numMember.value;
+    var description = document.createChoice.description.value;
     var data = {};
     data["choiceID"] = choiceID;
     data["limitMember"] = numMember;
     data["numAlt"] = numAlt;
-    data["localDateTime"] = LocalDateTime.now();
     data["description"] = description;
 
     var js = JSON.stringify(data);
@@ -39,7 +38,7 @@ function handleCreateClick(e) {
     if (xhr.readyState == XMLHttpRequest.DONE) {
     if (xhr.status == 200) {
     console.log ("XHR:" + xhr.responseText);
-    processCreateResponse(arg1, arg2, xhr.responseText);
+    processCreateResponse(xhr.responseText);
 } else if (xhr.status == 400) {
     alert ("unable to process request");
 }
