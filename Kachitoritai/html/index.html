@@ -65,22 +65,24 @@ function handleClick(e) {
 
 <h1>Request Create Choice</h1>
 
-<form name="addChoice" method="post" name="addValues">
+<form name="createChoice" method="post">
 	<label for="numAlt">Number of alternatives</label>
 	<input type="text" id="numAlt" name="numAlt"><br><br>
 	<label for="numMember">Number of group members</label>
 	<input type="text" id="numMember" name="numMember"><br><br>
+	<label for="description">Description of the Choice</label>
+	<input type="text" id="description" name="description"><br><br>
   	<input type="button" value="Submit"  onClick="JavaScript:createChoice()"><br><br>
   	<input id="result" name="result" readonly/>
 </form>
 
 
 <h1>Request Load Choice</h1>
-<form name="loadChoice" method="post" name="addValues">
+<form name="participateChoice" method="post">
 	<label for="choiceID">Please Enter the Choice ID</label>
 	<input type="text" id="choiceID" name="choiceID"><br><br>
   	<input type="button" value="Submit"  onClick="JavaScript:loadChoice()"><br><br>
-
+	<input id="errorMessage" name="errorMessage" readonly/>
 </form>
 
 
