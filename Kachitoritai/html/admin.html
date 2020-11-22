@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <h1>Admin Page</h1>
+</head>
+<body>
+<form name="adminGet" method="get">
+    <label>Get All Choices</label>
+    <input type="button" value="Retrieve" onClick="JavaScript:createChoice()"><br><br>
+    <textarea id="ListOfChoices" rows="10" cols="50"></textarea>
+</form>
+
+<form name="deleteStale" method="get">
+    <label for="age">Age of the Choices to be deleted</label>
+    <input type="text" id="age" name="age" readonly><br><br>
+    <input type="button" value="Delete" onClick="JavaScript:createChoice()"><br><br>
+    <label for="result">Delete Result</label>
+    <input type="text" id="result" name="result" readonly/>
+</form>
+</body>
+</html>
