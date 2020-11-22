@@ -53,7 +53,7 @@ public class DatabaseUtil {
 		
 		try {
 			System.out.println("start connecting......");
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 			System.out.println("connecting in DatabaseUtil");
 			conn = DriverManager.getConnection(
