@@ -13,12 +13,15 @@ function processCreateResponse(arg1, arg2, result) {
 function handleCreateClick(e) {
     //document.getElementById("result").value = "This is";
     document.addForm.result.value = "success";
+    var choiceID = "NewChoice"
     var numAlt = form.numAlt.value;
     var numMember = form.numMember.value;
     var description = form.description.value;
     var data = {};
+    data["choiceID"] = choiceID;
+    data["limitMember"] = numMember;
     data["numAlt"] = numAlt;
-    data["numMember"] = numMember;
+    data["localDateTime"] = LocalDateTime.now();
     data["description"] = description;
 
     var js = JSON.stringify(data);
