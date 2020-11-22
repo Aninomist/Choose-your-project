@@ -25,4 +25,12 @@ public class CreateChoiceRequest {
 
 	
 	public CreateChoiceRequest() {}
+	
+	public CreateChoiceRequest(String choiceID, int limitMember, int numAlt, String time, String description) {
+		this.choiceID = choiceID;
+		this.limitMember = limitMember;
+		this.numAlt = numAlt;
+		this.localDateTime = time;
+		this.description = description;
+	}
 }

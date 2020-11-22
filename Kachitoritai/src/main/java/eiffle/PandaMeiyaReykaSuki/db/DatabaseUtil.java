@@ -17,8 +17,8 @@ public class DatabaseUtil {
 	// Make sure matches Schema created from MySQL WorkBench
 	// Make sysEnv variable lambdaTesting so we know we are locally testing
 	public final static String lambdaTesting = "lambdaTesting";
-	public final static String dbName = "Kachitoritai";
-	public final static String testName = "test";
+	public final static String dbName = "kachitoritai";
+	public final static String testName = "kachitoritai";
 	
 	
 	// pooled across all usages.
@@ -52,9 +52,10 @@ public class DatabaseUtil {
 		}
 		
 		try {
-			//System.out.println("start connecting......");
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("start connecting......");
+			Class.forName("com.mysql.jdbc.Driver");
 			
+			System.out.println("connecting in DatabaseUtil");
 			conn = DriverManager.getConnection(
 					jdbcTag + rdsMySqlDatabaseUrl + ":" + rdsMySqlDatabasePort + "/" + schemaName + multiQueries,
 					dbUsername,
