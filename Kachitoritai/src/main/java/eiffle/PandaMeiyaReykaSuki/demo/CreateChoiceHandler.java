@@ -1,6 +1,9 @@
 package eiffle.PandaMeiyaReykaSuki.demo;
 
+import java.util.UUID;
+
 import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.S3Event;
 import com.amazonaws.services.s3.AmazonS3;
@@ -8,38 +11,57 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 
-public class CreateChoiceHandler implements RequestHandler<S3Event, String> {
+import eiffle.PandaMeiyaReykaSuki.db.ChoiceDAO;
+import eiffle.PandaMeiyaReykaSuki.http.CreateChoiceRequest;
+import eiffle.PandaMeiyaReykaSuki.http.CreateChoiceResponse;
+import eiffle.PandaMeiyaReykaSuki.model.Choice;
 
-    private AmazonS3 s3 = AmazonS3ClientBuilder.standard().build();
+public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,CreateChoiceResponse> {
 
-    private int test  = 3;
+	LambdaLogger logger;
+	
+    private AmazonS3 s3 = null;
     
     public CreateChoiceHandler() {}
 
-    // Test purpose only.
-    CreateChoiceHandler(AmazonS3 s3) {
-        this.s3 = s3;
-    }
-
-    @Override
-    public String handleRequest(S3Event event, Context context) {
-        context.getLogger().log("Received event: " + event);
-
-        // Get the object from the event and show its content type
-        String bucket = event.getRecords().get(0).getS3().getBucket().getName();
-        String key = event.getRecords().get(0).getS3().getObject().getKey();
-        try {
-            S3Object response = s3.getObject(new GetObjectRequest(bucket, key));
-            String contentType = response.getObjectMetadata().getContentType();
-            context.getLogger().log("CONTENT TYPE: " + contentType);
-            return contentType;
-        } catch (Exception e) {
-            e.printStackTrace();
-            context.getLogger().log(String.format(
-                "Error getting object %s from bucket %s. Make sure they exist and"
-                + " your bucket is in the same region as this function.", key, bucket));
-            throw e;
-        }
   
+    
+    boolean createChoice(int numMember, int numAlt) throws Exception{
+    	if (logger != null) { logger.log("in createChoice"); }
+    	ChoiceDAO dao = new ChoiceDAO();
+    	
+    	UUID choiceID = UUID.randomUUID();
+    	boolean exist = dao.getChoice(choiceID.toString());
+    	
+    	if(exist) {return false;}
+    	
+    	else if(numMember < 2 && numAlt > 5) {
+    		Choice choice = new Choice(numMember, numAlt);
+    		return dao.addChoice(choice);
+    	} else {
+    		return false;
+    	}	
     }
+    	
+    
+
+	@Override
+	public CreateChoiceResponse handleRequest(CreateChoiceRequest req, Context context) {
+		logger = context.getLogger();
+		logger.log(req.toString());
+		
+		CreateChoiceResponse response;
+		
+		try {
+			if(createChoice(req.numMember, req.numAlt)) {
+				response = new CreateChoiceResponse(req.choiceID);
+			} else {
+				response = new CreateChoiceResponse(req.choiceID, 422);
+			}
+		} catch (Exception e) {
+			response = new CreateChoiceResponse("Unable to create choice: " + req.choiceID + "(" + e.getMessage() + ")", 400);
+		}
+
+		return response;
+	}
 }
