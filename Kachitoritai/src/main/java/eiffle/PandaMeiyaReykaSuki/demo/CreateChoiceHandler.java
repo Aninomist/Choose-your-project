@@ -1,4 +1,4 @@
-package com.amazonaws.lambda.demo;
+package eiffle.PandaMeiyaReykaSuki.demo;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
@@ -8,16 +8,16 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 
-public class KachitoritaiHandler implements RequestHandler<S3Event, String> {
+public class CreateChoiceHandler implements RequestHandler<S3Event, String> {
 
     private AmazonS3 s3 = AmazonS3ClientBuilder.standard().build();
 
     private int test  = 3;
     
-    public KachitoritaiHandler() {}
+    public CreateChoiceHandler() {}
 
     // Test purpose only.
-    KachitoritaiHandler(AmazonS3 s3) {
+    CreateChoiceHandler(AmazonS3 s3) {
         this.s3 = s3;
     }
 

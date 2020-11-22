@@ -1,4 +1,4 @@
-package com.amazonaws.lambda.demo;
+package eiffle.PandaMeiyaReykaSuki.demo;
 
 import static org.mockito.Mockito.when;
 
@@ -19,6 +19,8 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.S3Object;
+
+import eiffle.PandaMeiyaReykaSuki.demo.CreateChoiceHandler;
 
 /**
  * A simple test harness for locally invoking your Lambda function handler.
@@ -59,7 +61,7 @@ public class KachitoritaiHandlerTest {
 
     @Test
     public void testKachitoritaiHandler() {
-        KachitoritaiHandler handler = new KachitoritaiHandler(s3Client);
+        CreateChoiceHandler handler = new CreateChoiceHandler(s3Client);
         Context ctx = createContext();
 
         String output = handler.handleRequest(event, ctx);

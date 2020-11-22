@@ -1,4 +1,4 @@
-package com.amazonaws.lambda.demo;
+package eiffle.PandaMeiyaReykaSuki.demo;
 
 import java.io.IOException;
 import java.io.InputStream;

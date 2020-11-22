@@ -1,4 +1,4 @@
-package com.amazonaws.lambda.demo;
+package eiffle.PandaMeiyaReykaSuki.demo;
 
 import com.amazonaws.services.lambda.runtime.ClientContext;
 import com.amazonaws.services.lambda.runtime.CognitoIdentity;
