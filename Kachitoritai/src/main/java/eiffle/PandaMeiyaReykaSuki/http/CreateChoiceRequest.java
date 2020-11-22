@@ -5,7 +5,7 @@ public class CreateChoiceRequest {
 	public String choiceID;
 	public int limitMember;
 	public int numAlt;
-	public String localDateTime;
+//	public String localDateTime;
 	public String description;
 	
 	public String getChoiceID( ) { return choiceID; }
@@ -17,8 +17,8 @@ public class CreateChoiceRequest {
 	public int getNumAlt() { return numAlt; }
 	public void setNumAlt(int numAlt) { this.numAlt = numAlt; }
 	
-	public String getLocalDateTime() { return localDateTime;}
-	public void setLocalDateTime(String localDateTime) {this.localDateTime = localDateTime;}
+//	public String getLocalDateTime() { return localDateTime;}
+//	public void setLocalDateTime(String localDateTime) {this.localDateTime = localDateTime;}
 	
 	public String description() { return description;}
 	public void setDescription(String description) {this.description = description;}
@@ -26,11 +26,10 @@ public class CreateChoiceRequest {
 	
 	public CreateChoiceRequest() {}
 	
-	public CreateChoiceRequest(String choiceID, int limitMember, int numAlt, String time, String description) {
+	public CreateChoiceRequest(String choiceID, int limitMember, int numAlt, String description) {
 		this.choiceID = choiceID;
 		this.limitMember = limitMember;
 		this.numAlt = numAlt;
-		this.localDateTime = time;
 		this.description = description;
 	}
 }

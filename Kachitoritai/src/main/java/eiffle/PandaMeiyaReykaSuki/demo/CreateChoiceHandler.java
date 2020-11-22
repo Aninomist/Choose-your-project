@@ -27,7 +27,7 @@ public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,C
 
   
     
-    boolean createChoice(int limitMember, int numAlt, String description, String localDateTime) throws Exception{
+    boolean createChoice(int limitMember, int numAlt, String description) throws Exception{
     	if (logger != null) { logger.log("in createChoice"); }
     	ChoiceDAO dao = new ChoiceDAO();
     	
@@ -39,7 +39,8 @@ public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,C
     	
     	System.out.println("dao acquired in Create Choice");
     	if(numAlt > 2 && numAlt < 5) {
-    		Choice choice = new Choice(choiceID, limitMember, numAlt, description,localDateTime);
+    		LocalDateTime time = LocalDateTime.now();
+    		Choice choice = new Choice(choiceID, limitMember, numAlt, description, time.toString());
     		System.out.println("about to return addChoice(choice");
     		boolean status = dao.addChoice(choice);
     		System.out.println("choice added");
@@ -60,7 +61,7 @@ public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,C
 		CreateChoiceResponse response;
 		
 		try {
-			if(createChoice(req.limitMember, req.numAlt, req.description, req.localDateTime)) {
+			if(createChoice(req.limitMember, req.numAlt, req.description)) {
 				response = new CreateChoiceResponse(req.choiceID);
 			} else {
 				response = new CreateChoiceResponse(req.choiceID, 422);
