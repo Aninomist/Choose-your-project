@@ -26,6 +26,11 @@ public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,C
     public CreateChoiceHandler() {}
 
   
+    boolean checkChoiceExist(String choiceID) throws Exception{
+    	if (logger != null) { logger.log("in checkChoiceExist"); }
+    	ChoiceDAO dao = new ChoiceDAO();
+    	return dao.existChoice(choiceID);
+    }
     
     boolean createChoice(int limitMember, int numAlt, String description) throws Exception{
     	if (logger != null) { logger.log("in createChoice"); }
@@ -35,6 +40,7 @@ public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,C
 //    	boolean exist = dao.getChoice(choiceID);
     	
 //    	if(exist) {return false;}
+    	
     	
     	System.out.println("dao acquired in Create Choice");
     	if(numAlt > 2 && numAlt < 5) {
@@ -56,12 +62,19 @@ public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,C
 		CreateChoiceResponse response;
 		
 		try {
-			
-			if(createChoice(req.limitMember, req.numAlt, req.description)) {
-				response = new CreateChoiceResponse(choiceID);
-			} else {
-				response = new CreateChoiceResponse("Unable to create choice, number of alternatives can only be between 2 and 5", 406);
-			}
+			if(req.choiceID.equals("newChoice")) {
+				if(createChoice(req.limitMember, req.numAlt, req.description)) {
+					response = new CreateChoiceResponse(choiceID);
+				} else {
+					response = new CreateChoiceResponse("Unable to create choice, number of alternatives can only be between 2 and 5", 406);
+				}
+			} else {		
+				if(checkChoiceExist(req.choiceID)) {
+					response = new CreateChoiceResponse(req.choiceID);
+				} else {
+					response = new CreateChoiceResponse("Unable to find choice: " + req.choiceID, 404);
+				}
+			}	
 		} catch (Exception e) {
 			response = new CreateChoiceResponse("Unable to create choice: " + req.choiceID + "(" + e.getMessage() + ")", 400);
 		}

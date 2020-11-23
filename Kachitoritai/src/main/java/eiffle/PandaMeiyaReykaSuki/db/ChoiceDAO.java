@@ -25,6 +25,26 @@ public class ChoiceDAO {
     	}
     }
 	
+	public boolean existChoice(String choiceID) throws Exception {
+		try {
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE ChoiceID = ?;");
+			ps.setString(1, choiceID);
+			ResultSet resultSet = ps.executeQuery();
+			
+			while (resultSet.next()) {
+				System.out.println("exist in db");
+				return true;
+	        }
+			
+			return false;
+			
+		} catch (Exception e) {
+			System.out.println("exception caught in existChoice");
+			throw new Exception("Falied to checking if ChoiceID exist: " + e.getMessage());
+		}
+
+	}
+	
 	public boolean addChoice(Choice choice) throws Exception {
 		try {
 			System.out.println("prep statement 1 where choise = ");
