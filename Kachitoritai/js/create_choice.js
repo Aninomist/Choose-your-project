@@ -60,7 +60,7 @@ function handleCreateClick(e) {
 				alert ("not accepted, alternertaive need to be between 2 and 5");
 			}
 		} else {
-    	processCreateResponse(arg1, arg2, "N/A");
+    	processCreateResponse("N/A");
 		}	
 	};
 }
@@ -68,7 +68,7 @@ function handleCreateClick(e) {
 
 function handleLoadClick(e) {
     //document.getElementById("result").value = "This is";
-    const choiceID = document.getElementById("choiceID").innerHTML
+    const choiceID = document.participateChoice.choiceID.value;
 	console.log(choiceID)
     var data = {};
     data["choiceID"] = choiceID;
@@ -104,7 +104,7 @@ function handleLoadClick(e) {
     			alert ("unable to find choice");
 			}
 		} else {
-    	processCreateResponse(arg1, arg2, "N/A");
+    	processCreateResponse("N/A");
 		}	
 	};
 }
