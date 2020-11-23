@@ -1,4 +1,4 @@
-signInURL = "G:/Dev/eclipse-workspace/Kachitoritai/Kachitoritai/html/RegisterOrSingIn.html"
+signInURL = "https://kachitoridaics3733groupproject.s3.us-east-2.amazonaws.com/html/RegisterOrSingIn.html"
 
 function processCreateResponse(result) {
     // Can grab any DIV or SPAN HTML element and can then manipulate its
