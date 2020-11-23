@@ -21,7 +21,7 @@ public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,C
 
 	LambdaLogger logger;
 	
-    private AmazonS3 s3 = null;
+	String choiceID;
     
     public CreateChoiceHandler() {}
 
@@ -31,22 +31,17 @@ public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,C
     	if (logger != null) { logger.log("in createChoice"); }
     	ChoiceDAO dao = new ChoiceDAO();
     	
-    	String choiceID = UUID.randomUUID().toString();
+    	choiceID = UUID.randomUUID().toString();
 //    	boolean exist = dao.getChoice(choiceID);
     	
 //    	if(exist) {return false;}
-    	
     	
     	System.out.println("dao acquired in Create Choice");
     	if(numAlt > 2 && numAlt < 5) {
     		LocalDateTime time = LocalDateTime.now();
     		Choice choice = new Choice(choiceID, limitMember, numAlt, description, time.toString());
-    		System.out.println("about to return addChoice(choice");
-    		boolean status = dao.addChoice(choice);
-    		System.out.println("choice added");
-    		return status;
+    		return dao.addChoice(choice);
     	} else {
-    		System.out.println("about to return false");
     		return false;
     	}	
     }
@@ -61,10 +56,11 @@ public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,C
 		CreateChoiceResponse response;
 		
 		try {
+			
 			if(createChoice(req.limitMember, req.numAlt, req.description)) {
-				response = new CreateChoiceResponse(req.choiceID);
+				response = new CreateChoiceResponse(choiceID);
 			} else {
-				response = new CreateChoiceResponse(req.choiceID, 422);
+				response = new CreateChoiceResponse("Unable to create choice, number of alternatives can only be between 2 and 5", 406);
 			}
 		} catch (Exception e) {
 			response = new CreateChoiceResponse("Unable to create choice: " + req.choiceID + "(" + e.getMessage() + ")", 400);

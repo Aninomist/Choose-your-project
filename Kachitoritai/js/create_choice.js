@@ -33,17 +33,20 @@ function handleCreateClick(e) {
 
     // This will process results and update HTML as appropriate.
     xhr.onloadend = function () {
-    console.log(xhr);
-    console.log(xhr.request);
-    if (xhr.readyState == XMLHttpRequest.DONE) {
-    if (xhr.status == 200) {
-    console.log ("XHR:" + xhr.responseText);
-    processCreateResponse(xhr.responseText);
-} else if (xhr.status == 400) {
-    alert ("unable to process request");
-}
-} else {
-    processCreateResponse(arg1, arg2, "N/A");
-}
-};
+    	console.log(xhr);
+    	console.log(xhr.request);
+    	if (xhr.readyState == XMLHttpRequest.DONE) {
+    		if (xhr.status == 200) {
+    			console.log ("XHR:" + xhr.responseText);
+    			processCreateResponse(xhr.responseText);
+				html.location.replace()
+			} else if (xhr.status == 400) {
+    			alert ("unable to process request");
+			} else if (xht.status == 406) {
+				alert ("not accepted, alternertaive need to be between 2 and 5");
+			}
+		} else {
+    	processCreateResponse(arg1, arg2, "N/A");
+		}	
+	};
 }
