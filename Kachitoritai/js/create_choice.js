@@ -1,3 +1,5 @@
+signInURL = "G:/Dev/eclipse-workspace/Kachitoritai/Kachitoritai/html/RegisterOrSingIn.html"
+
 function processCreateResponse(result) {
     // Can grab any DIV or SPAN HTML element and can then manipulate its
     // contents dynamically via javascript
@@ -7,7 +9,8 @@ function processCreateResponse(result) {
     var computation = js["result"];
 
     // Update computation result
-    document.createChoice.result.value = computation
+    document.createChoice.result.value = computation;
+	console.log(computation);
 }
 
 function handleCreateClick(e) {
@@ -36,13 +39,25 @@ function handleCreateClick(e) {
     	console.log(xhr);
     	console.log(xhr.request);
     	if (xhr.readyState == XMLHttpRequest.DONE) {
-    		if (xhr.status == 200) {
+	
+			var responseJs = JSON.parse(xhr.responseText);
+			choiceID = responseJs.response;
+			reponseCode = responseJs.httpCode;
+	
+    		if (reponseCode == 200) {
+				
     			console.log ("XHR:" + xhr.responseText);
     			processCreateResponse(xhr.responseText);
-				html.location.replace()
-			} else if (xhr.status == 400) {
+
+				
+				signInHTML = signInURL + "?choiceID="  + choiceID;
+				console.log(signInHTML)
+				window.location.replace(signInHTML);
+				
+				
+			} else if (reponseCode == 400) {
     			alert ("unable to process request");
-			} else if (xht.status == 406) {
+			} else if (reponseCode == 406) {
 				alert ("not accepted, alternertaive need to be between 2 and 5");
 			}
 		} else {
