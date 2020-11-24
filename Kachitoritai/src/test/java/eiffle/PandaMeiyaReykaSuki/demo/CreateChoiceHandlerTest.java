@@ -24,7 +24,7 @@ import com.amazonaws.services.s3.model.S3Object;
 public class CreateChoiceHandlerTest extends LambdaTest{
 
     void testSuccessInput(String incoming) throws IOException {
-    	CreateChoiceHandler handler = new CreateChoiceHandler();
+    	ChoiceHandler handler = new ChoiceHandler();
     	ChoiceRequest req = new Gson().fromJson(incoming, ChoiceRequest.class);
        
         ChoiceResponse resp = handler.handleRequest(req, createContext("create"));
@@ -38,8 +38,7 @@ public class CreateChoiceHandlerTest extends LambdaTest{
     			"testChoiceFromEcliseWithID100",
     			3,
     			3,
-    			"faketime",
-    			"description test");
+    			"faketime");
     	
     	String SAMPLE_INPUT_STRING = new Gson().toJson(ccr);
     	

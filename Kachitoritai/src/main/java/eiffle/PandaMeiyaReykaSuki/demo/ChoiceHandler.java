@@ -17,13 +17,13 @@ import eiffle.PandaMeiyaReykaSuki.http.ChoiceRequest;
 import eiffle.PandaMeiyaReykaSuki.http.ChoiceResponse;
 import eiffle.PandaMeiyaReykaSuki.model.Choice;
 
-public class CreateChoiceHandler implements RequestHandler<ChoiceRequest,ChoiceResponse> {
+public class ChoiceHandler implements RequestHandler<ChoiceRequest,ChoiceResponse> {
 
 	LambdaLogger logger;
 	
 	String choiceID;
     
-    public CreateChoiceHandler() {}
+    public ChoiceHandler() {}
 
   
     boolean checkChoiceExist(String choiceID) throws Exception{

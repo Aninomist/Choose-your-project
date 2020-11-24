@@ -19,11 +19,9 @@ function handleRegisterClick(e) {
     var username = document.registerOrSignIn.username.value;
     var password = document.registerOrSignIn.password.value;
     var data = {};
-    var teamMember = {};
     data["ID"] = choiceID;
-    teamMember["username"] = username;
-    teamMember["password"] = password;
-    data["teamMember"] = teamMember;
+    data["username"] = username;
+    data["password"] = password;
 
     var js = JSON.stringify(data);
     console.log("JS:" + js);
