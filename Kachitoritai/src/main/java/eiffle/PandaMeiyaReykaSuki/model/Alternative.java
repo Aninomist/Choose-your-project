@@ -6,7 +6,7 @@ public class Alternative {
 	public final boolean isFinalAlternative;
 	
 	
-	Alternative(String altID, String choiceID, boolean isFinalAlt) {
+	public Alternative(String altID, String choiceID, boolean isFinalAlt) {
 		this.altID = altID;
 		this.choiceID = choiceID;
 		this.isFinalAlternative = isFinalAlt;

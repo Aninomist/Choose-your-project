@@ -1,6 +1,8 @@
 package eiffle.PandaMeiyaReykaSuki.db;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -38,14 +40,29 @@ public class AlternativeDao {
 		}
 	}
 	
-	public List<Alternative> getAlternatives(int numAlt, String choiceID) throws Exception {
-		List<Alternative> allAlternatives = new ArrayList<>();
+	public List<Alternative> getAlternatives(String choiceID) throws Exception {
+		List<Alternative> allAlts = new ArrayList<>();
 		try {
-	
-	
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE choiceID = ?");
+			ps.setString(1, choiceID);
+			ResultSet resultSet = ps.executeQuery();
+			
+			while(resultSet.next()) {
+				Alternative alt = generateAlt(resultSet);
+				allAlts.add(alt);
+			}
+			
+			return allAlts;
 			
 		} catch(Exception e) {
 			throw new Exception("Falied to create Alternatives: " + e.getMessage());
 		}
+	}
+	
+	private Alternative generateAlt(ResultSet result) throws Exception {
+		return new Alternative(
+				result.getString("altID"),
+				result.getString("choiceID"),
+				result.getBoolean("isFinalAlternative"));
 	}
 }

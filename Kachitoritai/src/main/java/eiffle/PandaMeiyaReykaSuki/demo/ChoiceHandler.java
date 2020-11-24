@@ -12,6 +12,7 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 
+import eiffle.PandaMeiyaReykaSuki.db.AlternativeDao;
 import eiffle.PandaMeiyaReykaSuki.db.ChoiceDAO;
 import eiffle.PandaMeiyaReykaSuki.http.ChoiceRequest;
 import eiffle.PandaMeiyaReykaSuki.http.ChoiceResponse;
@@ -51,6 +52,13 @@ public class ChoiceHandler implements RequestHandler<ChoiceRequest,ChoiceRespons
     		return false;
     	}	
     }
+    
+    boolean createAlternatives(String choiceID, int numAlt) throws Exception {
+    	if (logger != null) { logger.log("in createAlternatives"); }
+    	AlternativeDao dao = new AlternativeDao();
+
+    	return dao.createAlternatives(numAlt, choiceID);
+    }
     	
     
 
@@ -64,7 +72,11 @@ public class ChoiceHandler implements RequestHandler<ChoiceRequest,ChoiceRespons
 		try {
 			if(req.choiceID.equals("newChoice")) {
 				if(createChoice(req.limitMember, req.numAlt, req.description)) {
-					response = new ChoiceResponse(choiceID);
+					if(createAlternatives(choiceID, req.numAlt)) {
+						response = new ChoiceResponse(choiceID);
+					} else {
+					response = new ChoiceResponse("Failed on Create alternatives", 400);
+					}
 				} else {
 					response = new ChoiceResponse("Unable to create choice, number of alternatives can only be between 2 and 5", 406);
 				}
