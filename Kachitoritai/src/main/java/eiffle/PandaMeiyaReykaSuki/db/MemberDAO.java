@@ -83,6 +83,9 @@ java.sql.Connection conn;
 				return false;
 	        }
 			// TODO compare password here.
+			if (resultSet.getString(password).equals(password)) {
+				return true;
+			}
 			return false;
 			
 		} catch (Exception e) {
