@@ -28,7 +28,6 @@ java.sql.Connection conn;
 				System.out.println("exist in db");
 				return true;
 	        }
-			
 			return false;
 			
 		} catch (Exception e) {
