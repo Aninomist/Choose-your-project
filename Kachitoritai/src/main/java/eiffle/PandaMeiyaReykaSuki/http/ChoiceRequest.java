@@ -1,6 +1,6 @@
 package eiffle.PandaMeiyaReykaSuki.http;
 
-public class CreateChoiceRequest {
+public class ChoiceRequest {
 
 	public String choiceID;
 	public int limitMember;
@@ -24,9 +24,9 @@ public class CreateChoiceRequest {
 	public void setDescription(String description) {this.description = description;}
 
 	
-	public CreateChoiceRequest() {}
+	public ChoiceRequest() {}
 	
-	public CreateChoiceRequest(String choiceID, int limitMember, int numAlt, String description) {
+	public ChoiceRequest(String choiceID, int limitMember, int numAlt, String description) {
 		this.choiceID = choiceID;
 		this.limitMember = limitMember;
 		this.numAlt = numAlt;

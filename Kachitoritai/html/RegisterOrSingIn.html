@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
-</head>
+    <script type="text/javascript" src="../js/api.js"></script>
+    <script type="text/javascript" src="../js/register_or_singin.js"></script>
 <body>
  	<h1>Register Or Sign In</h1>
  	<h1 id="choiceID">Choice ID: choiceID</h1>
@@ -19,12 +19,12 @@
     </script>
     <h2>Please enter a username below, password is optional.</h2>
     <h2>If you already have an account for this choice, please enter in the same filed and click sign in</h2>
-<form name="registerOrSignIn" method="get">
+<form name="registerOrSignIn" method="get", id="registerOrSignIn">
     <label>Username</label>
     <input type="text" id=username name="username"><br><br>
     <label>Password (optional)</label>
     <input type="text" id=password name="password"><br><br>
-    <input type="button" value="Register / Sign in" onClick="JavaScript:registerOrSignIn()"><br><br>
+    <input type="button" value="Register / Sign in" onClick="JavaScript:handleRegisterClick(this)"><br><br>
 </form>
 
 </body>

@@ -4,8 +4,8 @@ import java.io.IOException;
 
 import com.google.gson.Gson;
 
-import eiffle.PandaMeiyaReykaSuki.http.CreateChoiceRequest;
-import eiffle.PandaMeiyaReykaSuki.http.CreateChoiceResponse;
+import eiffle.PandaMeiyaReykaSuki.http.ChoiceRequest;
+import eiffle.PandaMeiyaReykaSuki.http.ChoiceResponse;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -25,16 +25,16 @@ public class CreateChoiceHandlerTest extends LambdaTest{
 
     void testSuccessInput(String incoming) throws IOException {
     	CreateChoiceHandler handler = new CreateChoiceHandler();
-    	CreateChoiceRequest req = new Gson().fromJson(incoming, CreateChoiceRequest.class);
+    	ChoiceRequest req = new Gson().fromJson(incoming, ChoiceRequest.class);
        
-        CreateChoiceResponse resp = handler.handleRequest(req, createContext("create"));
+        ChoiceResponse resp = handler.handleRequest(req, createContext("create"));
         Assert.assertEquals(200, resp.httpCode);
     }
 
     @Test
     public void testCreateChoice() {
     	
-    	CreateChoiceRequest ccr = new CreateChoiceRequest(
+    	ChoiceRequest ccr = new ChoiceRequest(
     			"testChoiceFromEcliseWithID100",
     			3,
     			3,

@@ -1,6 +1,6 @@
 signInURL = "https://kachitoridaics3733groupproject.s3.us-east-2.amazonaws.com/html/RegisterOrSingIn.html"
 
-function processCreateResponse(result) {
+function processResponse(result) {
     // Can grab any DIV or SPAN HTML element and can then manipulate its
     // contents dynamically via javascript
     console.log("result:" + result);
@@ -15,7 +15,7 @@ function processCreateResponse(result) {
 
 function handleCreateClick(e) {
     //document.getElementById("result").value = "This is";
-    document.createChoice.result.value = "success";
+    //document.createChoice.result.value = "success";
     var choiceID = "newChoice"
     var numAlt = document.createChoice.numAlt.value;
     var numMember = document.createChoice.numMember.value;
@@ -47,7 +47,7 @@ function handleCreateClick(e) {
     		if (reponseCode == 200) {
 				
     			console.log ("XHR:" + xhr.responseText);
-    			processCreateResponse(xhr.responseText);
+    			processResponse(xhr.responseText);
 
 				signInHTML = signInURL + "?choiceID="  + choiceID;
 				console.log(signInHTML)
@@ -60,7 +60,7 @@ function handleCreateClick(e) {
 				alert ("not accepted, alternertaive need to be between 2 and 5");
 			}
 		} else {
-    	processCreateResponse("N/A");
+    	processResponse("N/A");
 		}	
 	};
 }
@@ -93,7 +93,7 @@ function handleLoadClick(e) {
     		if (reponseCode == 200) {
 				
     			console.log ("XHR:" + xhr.responseText);
-    			processCreateResponse(xhr.responseText);
+    			processResponse(xhr.responseText);
 
 				signInHTML = signInURL + "?choiceID="  + choiceID;
 				console.log(signInHTML)
@@ -104,7 +104,7 @@ function handleLoadClick(e) {
     			alert ("unable to find choice");
 			}
 		} else {
-    	processCreateResponse("N/A");
+    	processResponse("N/A");
 		}	
 	};
 }

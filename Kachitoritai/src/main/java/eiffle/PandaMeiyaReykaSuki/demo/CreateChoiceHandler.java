@@ -13,11 +13,11 @@ import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 
 import eiffle.PandaMeiyaReykaSuki.db.ChoiceDAO;
-import eiffle.PandaMeiyaReykaSuki.http.CreateChoiceRequest;
-import eiffle.PandaMeiyaReykaSuki.http.CreateChoiceResponse;
+import eiffle.PandaMeiyaReykaSuki.http.ChoiceRequest;
+import eiffle.PandaMeiyaReykaSuki.http.ChoiceResponse;
 import eiffle.PandaMeiyaReykaSuki.model.Choice;
 
-public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,CreateChoiceResponse> {
+public class CreateChoiceHandler implements RequestHandler<ChoiceRequest,ChoiceResponse> {
 
 	LambdaLogger logger;
 	
@@ -55,28 +55,28 @@ public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,C
     
 
 	@Override
-	public CreateChoiceResponse handleRequest(CreateChoiceRequest req, Context context) {
+	public ChoiceResponse handleRequest(ChoiceRequest req, Context context) {
 		logger = context.getLogger();
 		logger.log(req.toString());
 		
-		CreateChoiceResponse response;
+		ChoiceResponse response;
 		
 		try {
 			if(req.choiceID.equals("newChoice")) {
 				if(createChoice(req.limitMember, req.numAlt, req.description)) {
-					response = new CreateChoiceResponse(choiceID);
+					response = new ChoiceResponse(choiceID);
 				} else {
-					response = new CreateChoiceResponse("Unable to create choice, number of alternatives can only be between 2 and 5", 406);
+					response = new ChoiceResponse("Unable to create choice, number of alternatives can only be between 2 and 5", 406);
 				}
 			} else {		
 				if(checkChoiceExist(req.choiceID)) {
-					response = new CreateChoiceResponse(req.choiceID);
+					response = new ChoiceResponse(req.choiceID);
 				} else {
-					response = new CreateChoiceResponse("Unable to find choice: " + req.choiceID, 404);
+					response = new ChoiceResponse("Unable to find choice: " + req.choiceID, 404);
 				}
 			}	
 		} catch (Exception e) {
-			response = new CreateChoiceResponse("Unable to create choice: " + req.choiceID + "(" + e.getMessage() + ")", 400);
+			response = new ChoiceResponse("Unable to create choice: " + req.choiceID + "(" + e.getMessage() + ")", 400);
 		}
 
 		return response;
