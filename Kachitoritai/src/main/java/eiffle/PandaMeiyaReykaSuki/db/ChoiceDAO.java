@@ -12,7 +12,6 @@ import eiffle.PandaMeiyaReykaSuki.model.Choice;
 public class ChoiceDAO {
 
 
-
 	java.sql.Connection conn;
 	
 	final String tblName = "Choice"; 
@@ -53,7 +52,7 @@ public class ChoiceDAO {
 			ResultSet resultSet = ps.executeQuery();
 			
 			while (resultSet.next()) {
-				System.out.println("exist in db");
+				System.out.println("System generated a duplicate UUID!");
 				return false;
 	        }
 			
