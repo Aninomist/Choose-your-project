@@ -24,7 +24,12 @@
   	<input type="button" value="Submit"  onClick="Javascript:handleLoadClick(this)"><br><br>
 	<input id="errorMessage" name="errorMessage" readonly/>
 </form>
-
-
+<h1>Switch to Admin View</h1>
+<form name="admin" method="post">
+	<label for="Admin">Please Enter the Admin password</label>
+	<input type="text" id="Admin" name="Admin"><br><br>
+	<input type="button" value="Switch to Admin"  onClick="Javascript:handleAdminClick(this)"><br><br>
+	<input id="errorMessageAdmin" name="errorMessageAdmin" readonly/>
+</form>
 </body>
 </html>

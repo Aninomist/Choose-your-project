@@ -1,5 +1,5 @@
 signInURL = "https://kachitoridaics3733groupproject.s3.us-east-2.amazonaws.com/html/RegisterOrSingIn.html"
-
+adminHTML = "https://kachitoridaics3733groupproject.s3.us-east-2.amazonaws.com/html/admin.html";
 function processResponse(result) {
     // Can grab any DIV or SPAN HTML element and can then manipulate its
     // contents dynamically via javascript
@@ -107,4 +107,22 @@ function handleLoadClick(e) {
     	processResponse("N/A");
 		}	
 	};
+}
+
+function handleAdminClick(e) {
+	//document.getElementById("result").value = "This is";
+	var data = {};
+	data["admin"] = document.admin.Admin.value;
+
+	window.location.replace(adminHTML);
+	//var js = JSON.stringify(data);
+	//console.log("JS:" + js);
+	//var xhr = new XMLHttpRequest();
+	//xhr.open("POST", createChoice_url, true);
+
+	// send the collected data as JSON
+	//xhr.send(js);
+
+	// This will process results and update HTML as appropriate.
+
 }
