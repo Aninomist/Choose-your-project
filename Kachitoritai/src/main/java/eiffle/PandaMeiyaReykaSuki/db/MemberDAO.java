@@ -18,6 +18,24 @@ java.sql.Connection conn;
     		conn = null;
     	}
     }
+	public boolean checkMemberExist(String username) throws Exception{
+		try {
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE username = ?;");
+			ps.setString(1, username);
+			ResultSet resultSet = ps.executeQuery();
+			
+			while (resultSet.next()) {
+				System.out.println("exist in db");
+				return true;
+	        }
+			
+			return false;
+			
+		} catch (Exception e) {
+			System.out.println("exception caught in existChoice");
+			throw new Exception("Falied to checking if Member exist: " + e.getMessage());
+		}
+	}
 	
 	public boolean addMember(Member member) throws Exception {
 		try {
@@ -53,5 +71,23 @@ java.sql.Connection conn;
 			throw new Exception("Falied to insert Member: " + e.getMessage());
 		}
 
+	}
+	public boolean checkPassword(String username, String password) throws Exception {
+		try {
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE username = ?;");
+			ps.setString(1, username);
+			ResultSet resultSet = ps.executeQuery();
+			
+			while (!resultSet.next()) {
+				System.out.println("User does not exist in db");
+				return false;
+	        }
+			// TODO compare password here.
+			return false;
+			
+		} catch (Exception e) {
+			System.out.println("exception caught in existChoice");
+			throw new Exception("Falied to checking if Member exist: " + e.getMessage());
+		}
 	}
 }
