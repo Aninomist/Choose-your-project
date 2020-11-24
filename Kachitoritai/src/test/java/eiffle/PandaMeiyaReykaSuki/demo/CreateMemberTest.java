@@ -19,7 +19,7 @@ import eiffle.PandaMeiyaReykaSuki.demo.LambdaTest;
 public class CreateMemberTest extends LambdaTest {
 
 	void testSuccessInput(String incoming) throws IOException {
-		MemberHandler handler = new MemberHandler();
+		RegisterOrSignInHandler handler = new RegisterOrSignInHandler();
 		RegisterOrSignInRequest req = new Gson().fromJson(incoming, RegisterOrSignInRequest.class);
 
 		RegisterOrSignInResponse resp = handler.handleRequest(req, createContext("create"));
