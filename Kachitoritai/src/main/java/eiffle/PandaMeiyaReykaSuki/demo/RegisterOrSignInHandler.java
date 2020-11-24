@@ -23,16 +23,30 @@ public class RegisterOrSignInHandler implements RequestHandler<RegisterOrSignInR
 		logger = context.getLogger();
 		logger.log(input.toString());
 		RegisterOrSignInResponse response;
-		
+
 		try {
-			if(input.password == null) {
-				if(createMember(input.username,input.choiceID)) {
+			if (checkMemberExist(input.username)) {
+				if (input.password == null) {
+					response = new RegisterOrSignInResponse(input.username);
+					return response;
+				} else {
+					if (checkPassword(input.username,input.password)) {
+						response = new RegisterOrSignInResponse(input.username);
+						return response;
+					} else {
+						response = new RegisterOrSignInResponse("Username and password does not match");
+						return response;
+					}
+				}
+			}
+			if (input.password == null) {
+				if (createMember(input.username, input.choiceID)) {
 					response = new RegisterOrSignInResponse(input.username);
 				} else {
 					response = new RegisterOrSignInResponse("unable to create user");
 				}
 			} else {
-				if(createMember(input.username,input.choiceID,input.password)) {
+				if (createMember(input.username, input.choiceID, input.password)) {
 					response = new RegisterOrSignInResponse(input.username);
 				} else {
 					response = new RegisterOrSignInResponse("unable to create user");
@@ -41,7 +55,7 @@ public class RegisterOrSignInHandler implements RequestHandler<RegisterOrSignInR
 		} catch (Exception e) {
 			response = new RegisterOrSignInResponse("unable to create user");
 		}
-		
+
 		return response;
 	}
 
@@ -79,6 +93,29 @@ public class RegisterOrSignInHandler implements RequestHandler<RegisterOrSignInR
 
 		Member member = new Member(username, choiceID);
 		return dao.addMember(member);
+	}
+
+	boolean checkMemberExist(String username) throws Exception {
+		if (logger != null) {
+			logger.log("in checkMemberExist");
+		}
+		MemberDAO dao = new MemberDAO();
+		if (dao.checkMemberExist(username)) {
+			return true;
+		}
+
+		return false;
+	}
+
+	boolean checkPassword(String username, String password) throws Exception {
+		if (logger != null) {
+			logger.log("in checkPassword");
+		}
+		MemberDAO dao = new MemberDAO();
+		if (dao.checkPassword(username, password)) {
+			return true;
+		}
+		return false;
 	}
 
 }
