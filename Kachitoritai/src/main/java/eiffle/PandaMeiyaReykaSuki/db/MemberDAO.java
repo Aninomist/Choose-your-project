@@ -74,9 +74,18 @@ java.sql.Connection conn;
 	}
 	public boolean checkPassword(String username, String password) throws Exception {
 		try {
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE username = ?;");
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE username = ? and password IS NULL;");
 			ps.setString(1, username);
 			ResultSet resultSet = ps.executeQuery();
+			
+			while (resultSet.next()) {
+				System.out.println("User without password exist in db");
+				return true;
+	        }
+			
+			ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE username = ?;");
+			ps.setString(1, username);
+			resultSet = ps.executeQuery();
 			
 			while (!resultSet.next()) {
 				System.out.println("User does not exist in db");
@@ -84,12 +93,13 @@ java.sql.Connection conn;
 	        }
 			// TODO compare password here.
 			if (resultSet.getString(password).equals(password)) {
+				
 				return true;
 			}
 			return false;
 			
 		} catch (Exception e) {
-			System.out.println("exception caught in existChoice");
+			System.out.println("Other exception caught in checkPassword");
 			throw new Exception("Falied to checking if Member exist: " + e.getMessage());
 		}
 	}
