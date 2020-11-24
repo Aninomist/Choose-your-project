@@ -26,17 +26,12 @@ public class RegisterOrSignInHandler implements RequestHandler<RegisterOrSignInR
 
 		try {
 			if (checkMemberExist(input.username)) {
-				if (input.password == null) {
+				if (checkPassword(input.username,input.password)) {
 					response = new RegisterOrSignInResponse(input.username);
 					return response;
 				} else {
-					if (checkPassword(input.username,input.password)) {
-						response = new RegisterOrSignInResponse(input.username);
-						return response;
-					} else {
-						response = new RegisterOrSignInResponse("Username and password does not match");
-						return response;
-					}
+					response = new RegisterOrSignInResponse("Username and password does not match");
+					return response;
 				}
 			}
 			if (input.password == null) {
