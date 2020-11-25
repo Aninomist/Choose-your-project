@@ -17,13 +17,19 @@ function handleCreateClick(e) {
     //document.getElementById("result").value = "This is";
     //document.createChoice.result.value = "success";
     var choiceID = "newChoice"
-    var numAlt = document.createChoice.numAlt.value;
+    var alternative = [];
+    alternative.push(document.createChoice.alt1.value);
+	alternative.push(document.createChoice.alt2.value);
+	alternative.push(document.createChoice.alt3.value);
+	alternative.push(document.createChoice.alt4.value);
+	alternative.push(document.createChoice.alt5.value);
+
     var numMember = document.createChoice.numMember.value;
     var description = document.createChoice.description.value;
     var data = {};
     data["choiceID"] = choiceID;
     data["limitMember"] = numMember;
-    data["numAlt"] = numAlt;
+    data["alternative"] = alternative;
     data["description"] = description;
 
     var js = JSON.stringify(data);
