@@ -1,6 +1,7 @@
 package eiffle.PandaMeiyaReykaSuki.demo;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 import com.amazonaws.services.lambda.runtime.Context;
@@ -17,6 +18,7 @@ import eiffle.PandaMeiyaReykaSuki.db.ChoiceDAO;
 import eiffle.PandaMeiyaReykaSuki.http.ChoiceRequest;
 import eiffle.PandaMeiyaReykaSuki.http.ChoiceResponse;
 import eiffle.PandaMeiyaReykaSuki.model.Choice;
+import eiffle.PandaMeiyaReykaSuki.demo.AlternativeController;
 
 public class ChoiceHandler implements RequestHandler<ChoiceRequest,ChoiceResponse> {
 
@@ -53,13 +55,7 @@ public class ChoiceHandler implements RequestHandler<ChoiceRequest,ChoiceRespons
     	}	
     }
     
-    boolean createAlternatives(String choiceID, int numAlt) throws Exception {
-    	if (logger != null) { logger.log("in createAlternatives"); }
-    	AlternativeDao dao = new AlternativeDao();
 
-    	return dao.createAlternatives(numAlt, choiceID);
-    }
-    	
     
 
 	@Override
@@ -72,7 +68,7 @@ public class ChoiceHandler implements RequestHandler<ChoiceRequest,ChoiceRespons
 		try {
 			if(req.choiceID.equals("newChoice")) {
 				if(createChoice(req.limitMember, req.numAlt, req.description)) {
-					if(createAlternatives(choiceID, req.numAlt)) {
+					if(new AlternativeController().createAlternatives(choiceID, req.numAlt, req.altDescription)) {
 						response = new ChoiceResponse(choiceID);
 					} else {
 					response = new ChoiceResponse("Failed on Create alternatives", 400);

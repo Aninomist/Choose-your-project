@@ -28,7 +28,7 @@ public class CreateMemberTest extends LambdaTest {
 
 	@Test
 	public void test() {
-		RegisterOrSignInRequest rosir = new RegisterOrSignInRequest("d8d43840-705d-42f5-8030-b4a8ebb179c9", "maomao");
+		RegisterOrSignInRequest rosir = new RegisterOrSignInRequest("f04a274d-2bd8-49b5-926b-5c221db7062f", "sdfsfadfasdfa","shjsdhf");
 
 		String SAMPLE_INPUT_STRING = new Gson().toJson(rosir);
 

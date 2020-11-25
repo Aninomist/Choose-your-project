@@ -23,14 +23,16 @@ public class AlternativeDao {
     	}
     }
 	
-	public boolean createAlternatives(int numAlt, String choiceID) throws Exception {
+	public boolean createAlternatives(int numAlt, String choiceID, List<String> altDescription) throws Exception {
 		try {
 			for (int i = 0; i < numAlt; i++) {
 				String altID = UUID.randomUUID().toString();
 				PreparedStatement ps = conn.prepareStatement("INSERT INTO " + tblName +
-						" (altID, choiceID, isFinalAlternative) values (?,?,FALSE)");
+						" (altID, choiceID, isFinalAlternative, noAlter, description) values (?,?,FALSE,?,?)");
 				ps.setString(1, altID);
 				ps.setString(2, choiceID);
+				ps.setInt(3, i+1);
+				ps.setString(4, altDescription.get(i));
 				ps.execute();
 			}
 			return true;
@@ -63,6 +65,8 @@ public class AlternativeDao {
 		return new Alternative(
 				result.getString("altID"),
 				result.getString("choiceID"),
-				result.getBoolean("isFinalAlternative"));
+				result.getBoolean("isFinalAlternative"),
+				result.getInt("noAlter"),
+				result.getNString("description"));
 	}
 }

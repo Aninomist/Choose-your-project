@@ -1,5 +1,6 @@
 package eiffle.PandaMeiyaReykaSuki.model;
 
+import java.util.List;
 import java.util.UUID;
 
 public class Choice {
@@ -10,6 +11,8 @@ public class Choice {
 	public final String localDateTime;
 	public int currentMember;
 	public boolean completed;
+	
+	public List<String> altDescription;
 
 	
 	public Choice(String choiceID, int limitMember, int numAlt, String description, String localDateTime) {

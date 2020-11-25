@@ -19,7 +19,7 @@ function handleRegisterClick(e) {
     var username = document.registerOrSignIn.username.value;
     var password = document.registerOrSignIn.password.value;
     var data = {};
-    data["ID"] = choiceID;
+    data["choiceID"] = choiceID;
     data["username"] = username;
     data["password"] = password;
 

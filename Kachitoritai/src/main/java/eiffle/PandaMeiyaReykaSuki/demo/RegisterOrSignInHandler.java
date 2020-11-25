@@ -17,6 +17,7 @@ public class RegisterOrSignInHandler implements RequestHandler<RegisterOrSignInR
 
 	public RegisterOrSignInHandler() {
 	}
+	
 
 	@Override
 	public RegisterOrSignInResponse handleRequest(RegisterOrSignInRequest input, Context context) {
@@ -27,7 +28,7 @@ public class RegisterOrSignInHandler implements RequestHandler<RegisterOrSignInR
 		try {
 			if (checkMemberExist(input.username)) {
 				if (checkPassword(input.username,input.password)) {
-					response = new RegisterOrSignInResponse(input.username);
+					response = new RegisterOrSignInResponse(input.username, new AlternativeController().getListAlternative(input.choiceID));
 					return response;
 				} else {
 					response = new RegisterOrSignInResponse("Username and password does not match");
@@ -36,13 +37,13 @@ public class RegisterOrSignInHandler implements RequestHandler<RegisterOrSignInR
 			}
 			if (input.password == null) {
 				if (createMember(input.username, input.choiceID)) {
-					response = new RegisterOrSignInResponse(input.username);
+					response = new RegisterOrSignInResponse(input.username, new AlternativeController().getListAlternative(input.choiceID));
 				} else {
 					response = new RegisterOrSignInResponse("unable to create user");
 				}
 			} else {
 				if (createMember(input.username, input.choiceID, input.password)) {
-					response = new RegisterOrSignInResponse(input.username);
+					response = new RegisterOrSignInResponse(input.username, new AlternativeController().getListAlternative(input.choiceID));
 				} else {
 					response = new RegisterOrSignInResponse("unable to create user");
 				}

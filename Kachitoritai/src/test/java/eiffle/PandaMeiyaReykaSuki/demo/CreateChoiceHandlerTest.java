@@ -1,6 +1,8 @@
 package eiffle.PandaMeiyaReykaSuki.demo;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 
@@ -31,16 +33,27 @@ public class CreateChoiceHandlerTest extends LambdaTest{
         Assert.assertEquals(200, resp.httpCode);
     }
 
+    
+    
     @Test
     public void testCreateChoice() {
     	
+    	List<String> altDescription = new ArrayList<>();
+    	altDescription.add("Alt 1");
+    	altDescription.add("Alt 2");
+    	altDescription.add("Alt 3");
+    	
     	ChoiceRequest ccr = new ChoiceRequest(
-    			"testChoiceFromEcliseWithID100",
+    			"newChoice",
     			3,
     			3,
-    			"faketime");
+    			"faketime",
+    			altDescription);
+    	
     	
     	String SAMPLE_INPUT_STRING = new Gson().toJson(ccr);
+    	
+    	System.out.println(SAMPLE_INPUT_STRING);
     	
     	 try {
          	testSuccessInput(SAMPLE_INPUT_STRING);
