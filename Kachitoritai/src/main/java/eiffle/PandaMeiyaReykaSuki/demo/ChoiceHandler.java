@@ -46,7 +46,7 @@ public class ChoiceHandler implements RequestHandler<ChoiceRequest,ChoiceRespons
     	
     	
     	System.out.println("dao acquired in Create Choice");
-    	if(numAlt > 2 && numAlt < 5) {
+    	if(numAlt >= 2 && numAlt <= 5) {
     		LocalDateTime time = LocalDateTime.now();
     		Choice choice = new Choice(choiceID, limitMember, numAlt, description, time.toString());
     		return dao.addChoice(choice);
