@@ -1,4 +1,4 @@
-//signInURL = "https://kachitoridaics3733groupproject.s3.us-east-2.amazonaws.com/html/RegisterOrSingIn.html"
+alternativeURL = "https://kachitoridaics3733groupproject.s3.us-east-2.amazonaws.com/html/Alternative.html"
 
 function processResponse(result) {
     // Can grab any DIV or SPAN HTML element and can then manipulate its
@@ -6,16 +6,38 @@ function processResponse(result) {
     console.log("result:" + result);
     var js = JSON.parse(result);
     var alternatives = js["alternatives"];
+    var length = alternatives.length;
     var alt1  = alternatives[0];
     var alt2  = alternatives[1];
-    var alt3  = alternatives[2];
-    var alt4  = alternatives[3];
-    var alt5  = alternatives[4];
+    if (length == 3) {
+        var alt3 = alternatives[2];
+    }
+    if (length == 4) {
+        var alt3 = alternatives[2];
+        var alt4  = alternatives[3];
+    }
+    if (length == 4) {
+        var alt3 = alternatives[2];
+        var alt4  = alternatives[3];
+        var alt5  = alternatives[4];
+    }
+
+
+
     document.alternatives.alt1.value = alt1["description"];
     document.alternatives.alt2.value = alt2["description"];
-    document.alternatives.alt3.value = alt3["description"];
-    document.alternatives.alt4.value = alt4["description"];
-    document.alternatives.alt5.value = alt5["description"];
+
+    if(length>=3) {
+        document.alternatives.alt3.value = alt3["description"];
+    }
+    if(length>=4) {
+        document.alternatives.alt4.value = alt4["description"];
+    }
+    if(length>=5) {
+        document.alternatives.alt5.value = alt5["description"];
+    }
+    //document.alternatives.alt4.value = alt4["description"];
+    //document.alternatives.alt5.value = alt5["description"];
     // Update computation result
     //document.createChoice.result.value = computation;
 }
@@ -52,10 +74,10 @@ function handleRegisterClick(e) {
 
                 console.log ("XHR:" + xhr.responseText);
                 processResponse(xhr.responseText);
-
-                //signInHTML = signInURL + "?choiceID="  + choiceID;
-                //console.log(signInHTML)
-                //window.location.replace(signInHTML);
+                var js = JSON.parse(xhr.responseText);
+                alternativeURL = alternativeURL + "?choiceID="  + choiceID + "?username="  + js["response"];
+                console.log(alternativeURL);
+                window.location.replace(alternativeURL);
 
 
             } else if (reponseCode == 400) {
@@ -67,13 +89,4 @@ function handleRegisterClick(e) {
             processResponse("N/A");
         }
     };
-}
-
-function isEmpty(obj) {
-    for(var prop in obj) {
-        if(obj.hasOwnProperty(prop))
-            return false;
-    }
-
-    return true;
 }

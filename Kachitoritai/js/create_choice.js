@@ -1,4 +1,4 @@
-signInURL = "https://kachitoridaics3733groupproject.s3.us-east-2.amazonaws.com/html/RegisterOrSingIn.html"
+signInURL = "https://kachitoridaics3733groupproject.s3.us-east-2.amazonaws.com/html/RegisterOrSignIn.html"
 adminHTML = "https://kachitoridaics3733groupproject.s3.us-east-2.amazonaws.com/html/admin.html";
 function processResponse(result) {
     // Can grab any DIV or SPAN HTML element and can then manipulate its
