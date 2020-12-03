@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="../js/api.js"></script>
-    <script type="text/javascript" src="../js/register_or_singin.js"></script>
+    <script type="text/javascript" src="../js/register_or_signIn.js"></script>
 <body>
  	<h1>Register Or Sign In</h1>
  	<h1 id="choiceID">Choice ID: choiceID</h1>
@@ -26,6 +26,18 @@
     <input type="text" id=password name="password"><br><br>
     <input type="button" value="Register / Sign in" onClick="JavaScript:handleRegisterClick(this)"><br><br>
 </form>
-
+    <h1>Generated alternatives will show below</h1>
+    <form name="alternatives", method="get", id="alternatives">
+        <label for="alt1">alternative 1 description</label>
+        <input type="text" id=alt1 name="alt1"><br><br>
+        <label for="alt2">alternative 2 description</label>
+        <input type="text" id=alt2 name="alt2"><br><br>
+        <label for="alt3">alternative 3 description (will show up if there is any)</label>
+        <input type="text" id=alt3 name="alt3"><br><br>
+        <label for="alt4">alternative 4 description (will show up if there is any)</label>
+        <input type="text" id=alt4 name="alt4"><br><br>
+        <label for="alt5">alternative 5 description (will show up if there is any)</label>
+        <input type="text" id=alt5 name="alt5"><br><br>
+    </form>
 </body>
 </html>

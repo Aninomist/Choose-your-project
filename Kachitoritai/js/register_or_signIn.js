@@ -5,12 +5,19 @@ function processResponse(result) {
     // contents dynamically via javascript
     console.log("result:" + result);
     var js = JSON.parse(result);
-
-    var computation = js["result"];
-
+    var alternatives = js["alternatives"];
+    var alt1  = alternatives[0];
+    var alt2  = alternatives[1];
+    var alt3  = alternatives[2];
+    var alt4  = alternatives[3];
+    var alt5  = alternatives[4];
+    document.alternatives.alt1.value = alt1["description"];
+    document.alternatives.alt2.value = alt2["description"];
+    document.alternatives.alt3.value = alt3["description"];
+    document.alternatives.alt4.value = alt4["description"];
+    document.alternatives.alt5.value = alt5["description"];
     // Update computation result
     //document.createChoice.result.value = computation;
-    console.log(computation);
 }
 
 function handleRegisterClick(e) {
@@ -62,3 +69,11 @@ function handleRegisterClick(e) {
     };
 }
 
+function isEmpty(obj) {
+    for(var prop in obj) {
+        if(obj.hasOwnProperty(prop))
+            return false;
+    }
+
+    return true;
+}

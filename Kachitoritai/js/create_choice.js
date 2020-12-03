@@ -18,18 +18,52 @@ function handleCreateClick(e) {
     //document.createChoice.result.value = "success";
     var choiceID = "newChoice"
     var alternative = [];
-    alternative.push(document.createChoice.alt1.value);
+    var altNum = 0;
+    if (isEmpty(document.createChoice.alt1.value)){
+		processResponse(JSON.stringify("First two alternatives could not be empty!"));
+		return;
+	} else {
+		alternative.push(document.createChoice.alt1.value);
+		altNum ++;
+	}
+	if (isEmpty(document.createChoice.alt2.value)){
+		processResponse(JSON.stringify("First two alternatives could not be empty!"));
+		return;
+	} else {
+		alternative.push(document.createChoice.alt2.value);
+		altNum ++;
+	}
+	if (isEmpty(document.createChoice.alt3.value)){
+
+	} else {
+		alternative.push(document.createChoice.alt3.value);
+		altNum ++;
+	}
+	if (isEmpty(document.createChoice.alt4.value)){
+
+	} else {
+		alternative.push(document.createChoice.alt4.value);
+		altNum ++;
+	}
+	if (isEmpty(document.createChoice.alt5.value)){
+
+	} else {
+		alternative.push(document.createChoice.alt5.value);
+		altNum ++;
+	}
+
 	alternative.push(document.createChoice.alt2.value);
 	alternative.push(document.createChoice.alt3.value);
 	alternative.push(document.createChoice.alt4.value);
 	alternative.push(document.createChoice.alt5.value);
-
+	//var altNum = document.createChoice.numAlt.value;
     var numMember = document.createChoice.numMember.value;
     var description = document.createChoice.description.value;
     var data = {};
     data["choiceID"] = choiceID;
     data["limitMember"] = numMember;
-    data["alternative"] = alternative;
+    data["numAlt"] = altNum;
+    data["altDescription"] = alternative;
     data["description"] = description;
 
     var js = JSON.stringify(data);
@@ -131,4 +165,13 @@ function handleAdminClick(e) {
 
 	// This will process results and update HTML as appropriate.
 
+}
+
+function isEmpty(obj) {
+	for(var prop in obj) {
+		if(obj.hasOwnProperty(prop))
+			return false;
+	}
+
+	return true;
 }
