@@ -42,7 +42,7 @@ public class AlternativeDao {
 		}
 	}
 	
-	public List<Alternative> getAlternatives(String choiceID) throws Exception {
+	public List<Alternative> getListAlternatives(String choiceID) throws Exception {
 		List<Alternative> allAlts = new ArrayList<>();
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE choiceID = ?");
@@ -57,9 +57,31 @@ public class AlternativeDao {
 			return allAlts;
 			
 		} catch(Exception e) {
-			throw new Exception("Falied to create Alternatives: " + e.getMessage());
+			throw new Exception("Falied to get list of Alternatives: " + e.getMessage());
 		}
 	}
+	
+	
+//	public Alternative getAlternative(String choiceID, int noAlter) throws Exception {
+//		try {
+//			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE choiceID = ? AND noAlter = ?;");
+//			ps.setString(1, choiceID);
+//			ps.setInt(2, noAlter);
+//			ResultSet resultSet = ps.executeQuery();
+//			
+//			
+//			if(resultSet.next()) {
+//				Alternative alt;
+//				alt = generateAlt(resultSet);
+//				return alt;
+//			} else {
+//				throw new Exception("Alternative does not exist in the database");
+//			}
+//			
+//		} catch(Exception e) {
+//			throw new Exception("Falied to get the one Alternative: " + e.getMessage());
+//		}
+//	}
 	
 	private Alternative generateAlt(ResultSet result) throws Exception {
 		return new Alternative(
