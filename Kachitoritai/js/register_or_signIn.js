@@ -76,7 +76,7 @@ function handleRegisterClick(e) {
                 processResponse(xhr.responseText);
                 var js = JSON.parse(xhr.responseText);
                 var alternatives = js["alternatives"];
-                alternativeURL = alternativeURL + "?choiceID="  + choiceID + " ?username="  + js["response"] + " ?altNum=" + alternatives.length;
+                alternativeURL = alternativeURL + "?choiceID="  + choiceID + "&username="  + js["response"] + "&altNum=" + alternatives.length;
                 console.log(alternativeURL);
                 window.location.replace(alternativeURL);
 

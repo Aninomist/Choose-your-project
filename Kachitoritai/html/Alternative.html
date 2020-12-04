@@ -1,10 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Kachitoritai</title>
+    <!--<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+
+<body><h1>Alternative page</h1>
+<h4 id="choiceID">Choice ID: choiceID</h4>
+<h6 id="description">What is the Choice about: description</h6>
+<h4 id="username">Username: username</h4>
+<script>
+    const queryString = window.location.search;
+    console.log(queryString);
+    const urlParams = new URLSearchParams(queryString);
+    const choiceID = urlParams.get('choiceID');
+    console.log(choiceID);
+
+    var str = document.getElementById("choiceID").innerHTML;
+    var res = str.replace("choiceID", choiceID);
+    document.getElementById("choiceID").innerHTML = res;
+
+    const description = urlParams.get('description');
+    str = document.getElementById("description").innerHTML;
+    res = str.replace("description", description);
+    document.getElementById("description").innerHTML = res;
+
+    const username = urlParams.get('username');
+    str = document.getElementById("username").innerHTML;
+    res = str.replace("username", username);
+    document.getElementById("username").innerHTML = res;
+</script>
+    <div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">Alt 1</a></li>
+            <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">Alt 2</a></li>
+            <li class="nav-item" style='visibility: hidden' id="nav-item-3"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">Alt 3</a></li>
+            <li class="nav-item" style='visibility: hidden' id="nav-item-4"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-4">Alt 4</a></li>
+            <li class="nav-item" style='visibility: hidden' id="nav-item-5"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-5">Alt 5</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane" role="tabpanel" id="tab-1">
+                <form>
+                    <label for="alt1">alternative 1 description:</label>
+                    <input type="text" id=alt1 name="alt" readonly><br><br>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6" style="width: 400px;">
+                                <label for="upvote1">number of people upvoted this alternative:</label><br>
+                                <input type="text" id=upvote1 name="upvote" readonly><br><br>
+                                <label for="upvoteUser1">list of people who upvoted this alternative:</label> <br>
+                                <textarea id="upvoteUser1" rows="10" cols="32" readonly></textarea> <br><br>
+                                <input type="button" value="Upvote"  onClick="Javascript:handleUpvoteClick(this)"><br><br>
+                            </div>
+                            <div class="col-md-6" style="width: 400px;">
+                                <label for="downvote1">number of people who downvoted this alternative:</label><br>
+                                <input type="text" id=downvote1 name="downvote" readonly><br><br>
+                                <label for="downvoteUser1">list of people downvoted this alternative:</label> <br>
+                                <textarea id="downvoteUser1" rows="10" cols="32" readonly></textarea> <br><br>
+                                <input type="button" value="Downvote"  onClick="Javascript:handleDownvoteClick(this)"><br><br>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane" role="tabpanel" id="tab-2">
+                <form>
+                    <label for="alt2">alternative 2 description:</label>
+                    <input type="text" id=alt2 name="alt" readonly><br><br>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6" style="width: 400px;">
+                                <label for="upvote2">number of people upvoted this alternative:</label><br>
+                                <input type="text" id=upvote2 name="upvote" readonly><br><br>
+                                <label for="upvoteUser2">list of people who upvoted this alternative:</label> <br>
+                                <textarea id="upvoteUser2" rows="10" cols="32" readonly></textarea> <br><br>
+                                <input type="button" value="Upvote"  onClick="Javascript:handleUpvoteClick(this)"><br><br>
+                            </div>
+                            <div class="col-md-6" style="width: 400px;">
+                                <label for="downvote2">number of people who downvoted this alternative:</label><br>
+                                <input type="text" id=downvote2 name="downvote" readonly><br><br>
+                                <label for="downvoteUser2">list of people downvoted this alternative:</label> <br>
+                                <textarea id="downvoteUser2" rows="10" cols="32" readonly></textarea> <br><br>
+                                <input type="button" value="Downvote"  onClick="Javascript:handleDownvoteClick(this)"><br><br>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane" role="tabpanel" id="tab-3">
+                <form>
+                    <label for="alt3">alternative 3 description:</label>
+                    <input type="text" id=alt3 name="alt" readonly><br><br>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6" style="width: 400px;">
+                                <label for="upvote3">number of people upvoted this alternative:</label><br>
+                                <input type="text" id=upvote3 name="upvote" readonly><br><br>
+                                <label for="upvoteUser3">list of people who upvoted this alternative:</label> <br>
+                                <textarea id="upvoteUser3" rows="10" cols="32" readonly></textarea> <br><br>
+                                <input type="button" value="Upvote"  onClick="Javascript:handleUpvoteClick(this)"><br><br>
+                            </div>
+                            <div class="col-md-6" style="width: 400px;">
+                                <label for="downvote3">number of people who downvoted this alternative:</label><br>
+                                <input type="text" id=downvote3 name="downvote" readonly><br><br>
+                                <label for="downvoteUser3">list of people downvoted this alternative:</label> <br>
+                                <textarea id="downvoteUser3" rows="10" cols="32" readonly></textarea> <br><br>
+                                <input type="button" value="Downvote"  onClick="Javascript:handleDownvoteClick(this)"><br><br>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane" role="tabpanel" id="tab-4">
+                <form>
+                    <label for="alt4">alternative 4 description:</label>
+                    <input type="text" id=alt4 name="alt" readonly><br><br>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6" style="width: 400px;">
+                                <label for="upvote4">number of people upvoted this alternative:</label><br>
+                                <input type="text" id=upvote4 name="upvote" readonly><br><br>
+                                <label for="upvoteUser4">list of people who upvoted this alternative:</label> <br>
+                                <textarea id="upvoteUser4" rows="10" cols="32" readonly></textarea> <br><br>
+                                <input type="button" value="Upvote"  onClick="Javascript:handleUpvoteClick(this)"><br><br>
+                            </div>
+                            <div class="col-md-6" style="width: 400px;">
+                                <label for="downvote4">number of people who downvoted this alternative:</label><br>
+                                <input type="text" id=downvote4 name="downvote" readonly><br><br>
+                                <label for="upvoteUser4">list of people downvoted this alternative:</label> <br>
+                                <textarea id="downvoteUser4" rows="10" cols="32" readonly></textarea> <br><br>
+                                <input type="button" value="Downvote"  onClick="Javascript:handleDownvoteClick(this)"><br><br>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane" role="tabpanel" id="tab-5">
+                <form name="tab1">
+                    <label for="alt5">alternative 5 description:</label>
+                    <input type="text" id=alt5 name="alt" readonly><br><br>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6" style="width: 400px;">
+                                <label for="upvote5">number of people upvoted this alternative:</label><br>
+                                <input type="text" id=upvote5 name="upvote" readonly><br><br>
+                                <label for="upvoteUser5">list of people who upvoted this alternative:</label> <br>
+                                <textarea id="upvoteUser5" rows="10" cols="32" readonly></textarea> <br><br>
+                                <input type="button" value="Upvote"  onClick="Javascript:handleUpvoteClick(this)"><br><br>
+                            </div>
+                            <div class="col-md-6" style="width: 400px;">
+                                <label for="downvote5">number of people who downvoted this alternative:</label><br>
+                                <input type="text" id=downvote5 name="downvote" readonly><br><br>
+                                <label for="upvoteUser5">list of people downvoted this alternative:</label> <br>
+                                <textarea id="downvoteUser5" rows="10" cols="32" readonly></textarea> <br><br>
+                                <input type="button" value="Downvote"  onClick="Javascript:handleDownvoteClick(this)"><br><br>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <script>
+                const altNum = urlParams.get('altNum');
+                if (altNum >= 3){
+                    document.getElementById('nav-item-3').style.visibility = 'visible';
+                }
+                if (altNum >= 4){
+                    document.getElementById('nav-item-4').style.visibility = 'visible';
+                }
+                if (altNum >= 5){
+                    document.getElementById('nav-item-5').style.visibility = 'visible';
+                }
+            </script>
+        </div>
+    </div>
 
 </body>
+
 </html>
