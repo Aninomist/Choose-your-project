@@ -32,7 +32,7 @@ public class GetAlternativeHandler implements RequestHandler<GetAlternativeReque
 					new AlternativeController().getListAlternativesWithFeedback(req.choiceID));
 			
 		} catch(Exception e) {
-			response = new GetAlternativeResponse("unable to get Alternatives", 400);
+			response = new GetAlternativeResponse("Unable to get Alternatives: " + req.choiceID + "(" + e.getMessage() + ")", 400);
 		}
 		
 		

@@ -10,6 +10,8 @@ public class Alternative {
 	public final String description;
 	
 	public List<FeedBack> feedBacks;
+	public List<String> upVotes;
+	public List<String> downVotes;
 	
 	
 	
@@ -20,14 +22,16 @@ public class Alternative {
 		this.noAlter = noAlter;
 		this.description = description;
 		this.feedBacks = null;
+		this.upVotes = null;
+		this.downVotes = null;
 	}
 	
-	public Alternative(String altID, String choiceID, boolean isFinalAlt, int noAlter, String description, List<FeedBack> feedBacks) {
-		this.altID = altID;
-		this.choiceID = choiceID;
-		this.isFinalAlternative = isFinalAlt;
-		this.noAlter = noAlter;
-		this.description = description;
-		this.feedBacks = feedBacks;
-	}
+//	public Alternative(String altID, String choiceID, boolean isFinalAlt, int noAlter, String description, List<FeedBack> feedBacks) {
+//		this.altID = altID;
+//		this.choiceID = choiceID;
+//		this.isFinalAlternative = isFinalAlt;
+//		this.noAlter = noAlter;
+//		this.description = description;
+//		this.feedBacks = feedBacks;
+//	}
 }

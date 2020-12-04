@@ -5,7 +5,9 @@ import java.util.List;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 
 import eiffle.PandaMeiyaReykaSuki.db.AlternativeDao;
+import eiffle.PandaMeiyaReykaSuki.db.DownVoteDAO;
 import eiffle.PandaMeiyaReykaSuki.db.FeedBackDAO;
+import eiffle.PandaMeiyaReykaSuki.db.UpVoteDAO;
 import eiffle.PandaMeiyaReykaSuki.model.Alternative;
 
 public class AlternativeController {
@@ -37,9 +39,16 @@ public class AlternativeController {
     	List<Alternative> altList =  daoAlt.getListAlternatives(choiceID);
     	
     	FeedBackDAO daoFB = new FeedBackDAO();
+    	UpVoteDAO daoUV = new UpVoteDAO();
+    	DownVoteDAO daoDV = new DownVoteDAO();
+    	
     	for(Alternative alt : altList) {
     		alt.feedBacks = daoFB.getFeedBacks(alt.altID);
+    		alt.upVotes = daoUV.getUpVotes(alt.altID);
+    		alt.downVotes = daoDV.getDownVotes(alt.altID);
     	}
+    	
+    	
     	
     	return altList;
     }

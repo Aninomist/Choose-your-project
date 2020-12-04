@@ -21,3 +21,4 @@ public class GetAlternativeResponse {
 		this.httpCode = httpCode;
 	}
 }
+ 

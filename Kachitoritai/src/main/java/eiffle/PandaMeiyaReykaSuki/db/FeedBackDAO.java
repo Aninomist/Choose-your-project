@@ -10,7 +10,7 @@ import eiffle.PandaMeiyaReykaSuki.model.FeedBack;
 
 public class FeedBackDAO {
 
-java.sql.Connection conn;
+	java.sql.Connection conn;
 	
 	final String tblName = "Feedback"; 
 	
