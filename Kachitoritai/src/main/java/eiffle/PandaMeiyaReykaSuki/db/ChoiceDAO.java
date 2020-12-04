@@ -63,7 +63,7 @@ public class ChoiceDAO {
 			ps.setString(1,  choice.choiceID);
 			ps.setString(2,  choice.description);
             ps.setInt(3,  choice.numAlt);
-            ps.setString(4,  choice.localDateTime);
+            ps.setString(4,  choice.dateCreated);
             ps.setInt(5,  choice.limitMember);
             ps.setInt(6, 0);
             System.out.println("etatement 2 execute:" + ps);
@@ -77,8 +77,40 @@ public class ChoiceDAO {
 
 	}
 	
+	public List<Choice> getAllChoices() throws Exception {
+		try {
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName +";");
+			ResultSet resultSet = ps.executeQuery();
+			
+			List<Choice> listOfChoices = new ArrayList<>();
+			
+			while (resultSet.next() ) {
+				Choice choice = constructChoice(resultSet);
+				listOfChoices.add(choice);
+			}
+			
+			return listOfChoices;
+
+		} catch (Exception e) {
+			System.out.println("exception caught in getAllChoices");
+			throw new Exception("Falied to get getAllChoices: " + e.getMessage());
+		}
+	}
+	
 	public boolean getChoice(String choiceID) throws Exception {
 		//TODO
 		return false;
+	}
+	
+	
+	private Choice constructChoice(ResultSet result) throws Exception {
+		return new Choice(
+				result.getString("choiceID"),
+				result.getString("description"),
+				result.getInt("numberOfAlternative"),
+				result.getString("dateCreated"),
+				result.getInt("userLimit"),
+				result.getInt("userRegistered"),
+				result.getBoolean("completed"));
 	}
 }
