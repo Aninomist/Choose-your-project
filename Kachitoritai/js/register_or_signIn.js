@@ -1,4 +1,4 @@
-alternativeURL = "https://kachitoridaics3733groupproject.s3.us-east-2.amazonaws.com/html/Alternative.html"
+alternativeURL = "https://kachitoridaics3733groupproject.s3.us-east-2.amazonaws.com/html/alternative.html"
 
 function processResponse(result) {
     // Can grab any DIV or SPAN HTML element and can then manipulate its
@@ -16,7 +16,7 @@ function processResponse(result) {
         var alt3 = alternatives[2];
         var alt4  = alternatives[3];
     }
-    if (length == 4) {
+    if (length == 5) {
         var alt3 = alternatives[2];
         var alt4  = alternatives[3];
         var alt5  = alternatives[4];
@@ -75,7 +75,8 @@ function handleRegisterClick(e) {
                 console.log ("XHR:" + xhr.responseText);
                 processResponse(xhr.responseText);
                 var js = JSON.parse(xhr.responseText);
-                alternativeURL = alternativeURL + "?choiceID="  + choiceID + "?username="  + js["response"];
+                var alternatives = js["alternatives"];
+                alternativeURL = alternativeURL + "?choiceID="  + choiceID + " ?username="  + js["response"] + " ?altNum=" + alternatives.length;
                 console.log(alternativeURL);
                 window.location.replace(alternativeURL);
 
