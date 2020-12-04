@@ -14,7 +14,7 @@
 
 <body><h1>Alternative page</h1>
 <h4 id="choiceID">Choice ID: choiceID</h4>
-<h6 id="description">What is the Choice about: description</h6>
+<!--<h6 id="description">What is the Choice about: description</h6>-->
 <h4 id="username">Username: username</h4>
 <script>
     const queryString = window.location.search;
@@ -27,10 +27,10 @@
     var res = str.replace("choiceID", choiceID);
     document.getElementById("choiceID").innerHTML = res;
 
-    const description = urlParams.get('description');
-    str = document.getElementById("description").innerHTML;
-    res = str.replace("description", description);
-    document.getElementById("description").innerHTML = res;
+    //const description = urlParams.get('description');
+    //str = document.getElementById("description").innerHTML;
+    //res = str.replace("description", description);
+    //document.getElementById("description").innerHTML = res;
 
     const username = urlParams.get('username');
     str = document.getElementById("username").innerHTML;
@@ -167,14 +167,20 @@
                 </form>
             </div>
             <script>
-                const altNum = urlParams.get('altNum');
+                var LOD = JSON.parse(urlParams.get('LOD'));
+                const altNum = LOD.length;
+                document.querySelector("#alt1").value = LOD[0];
+                document.querySelector("#alt2").value = LOD[1];
                 if (altNum >= 3){
+                    document.querySelector("#alt3").value = LOD[2];
                     document.getElementById('nav-item-3').style.visibility = 'visible';
                 }
                 if (altNum >= 4){
+                    document.querySelector("#alt4").value = LOD[3];
                     document.getElementById('nav-item-4').style.visibility = 'visible';
                 }
                 if (altNum >= 5){
+                    document.querySelector("#alt5").value = LOD[4];
                     document.getElementById('nav-item-5').style.visibility = 'visible';
                 }
             </script>

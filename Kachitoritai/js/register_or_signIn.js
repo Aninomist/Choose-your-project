@@ -1,47 +1,4 @@
 alternativeURL = "https://kachitoridaics3733groupproject.s3.us-east-2.amazonaws.com/html/alternative.html"
-
-function processResponse(result) {
-    // Can grab any DIV or SPAN HTML element and can then manipulate its
-    // contents dynamically via javascript
-    console.log("result:" + result);
-    var js = JSON.parse(result);
-    var alternatives = js["alternatives"];
-    var length = alternatives.length;
-    var alt1  = alternatives[0];
-    var alt2  = alternatives[1];
-    if (length == 3) {
-        var alt3 = alternatives[2];
-    }
-    if (length == 4) {
-        var alt3 = alternatives[2];
-        var alt4  = alternatives[3];
-    }
-    if (length == 5) {
-        var alt3 = alternatives[2];
-        var alt4  = alternatives[3];
-        var alt5  = alternatives[4];
-    }
-
-
-
-    document.alternatives.alt1.value = alt1["description"];
-    document.alternatives.alt2.value = alt2["description"];
-
-    if(length>=3) {
-        document.alternatives.alt3.value = alt3["description"];
-    }
-    if(length>=4) {
-        document.alternatives.alt4.value = alt4["description"];
-    }
-    if(length>=5) {
-        document.alternatives.alt5.value = alt5["description"];
-    }
-    //document.alternatives.alt4.value = alt4["description"];
-    //document.alternatives.alt5.value = alt5["description"];
-    // Update computation result
-    //document.createChoice.result.value = computation;
-}
-
 function handleRegisterClick(e) {
     //document.getElementById("result").value = "This is";
     //document.createChoice.result.value = "success";
@@ -73,10 +30,16 @@ function handleRegisterClick(e) {
             if (reponseCode == 200) {
 
                 console.log ("XHR:" + xhr.responseText);
-                processResponse(xhr.responseText);
+                //processResponse(xhr.responseText);
                 var js = JSON.parse(xhr.responseText);
                 var alternatives = js["alternatives"];
-                alternativeURL = alternativeURL + "?choiceID="  + choiceID + "&username="  + js["response"] + "&altNum=" + alternatives.length;
+                const altNum = alternatives.length;
+                var LOD = [];
+                for (var i = 0; i < altNum; i++){
+                    LOD[i] = alternatives[i]["description"];
+                }
+                var LOD_s = JSON.stringify(LOD)
+                alternativeURL = alternativeURL + "?choiceID="  + choiceID + "&username="  + js["response"] + "&LOD=" + LOD_s;
                 console.log(alternativeURL);
                 window.location.replace(alternativeURL);
 
