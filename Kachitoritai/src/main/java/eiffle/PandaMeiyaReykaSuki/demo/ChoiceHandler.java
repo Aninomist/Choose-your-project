@@ -20,7 +20,7 @@ import eiffle.PandaMeiyaReykaSuki.http.ChoiceResponse;
 import eiffle.PandaMeiyaReykaSuki.model.Choice;
 import eiffle.PandaMeiyaReykaSuki.demo.AlternativeController;
 
-public class ChoiceHandler implements RequestHandler<ChoiceRequest,ChoiceResponse> {
+public class ChoiceHandler implements RequestHandler<ChoiceRequest, ChoiceResponse> {
 
 	LambdaLogger logger;
 	

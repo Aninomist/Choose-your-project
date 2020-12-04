@@ -14,4 +14,6 @@ public class GetAlternativeRequest {
 		this.choiceID = choiceID;
 		this.noAlter = noAlter;
 	}
+	
+	public GetAlternativeRequest() {}
 }

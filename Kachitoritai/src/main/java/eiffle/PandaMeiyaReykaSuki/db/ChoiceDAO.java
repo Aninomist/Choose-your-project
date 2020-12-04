@@ -46,7 +46,7 @@ public class ChoiceDAO {
 	
 	public boolean addChoice(Choice choice) throws Exception {
 		try {
-			System.out.println("prep statement 1 where choise = ");
+			//System.out.println("prep statement 1 where choise = ");
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE ChoiceID = ?;");
 			ps.setString(1, choice.choiceID);
 			ResultSet resultSet = ps.executeQuery();

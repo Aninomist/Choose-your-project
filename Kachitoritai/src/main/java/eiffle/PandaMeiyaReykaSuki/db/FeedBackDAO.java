@@ -22,6 +22,34 @@ java.sql.Connection conn;
     	}
     }
 	
+	public boolean createFeedBack(FeedBack feedBack) throws Exception {
+		try {
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE feedBackID = ?;");
+			ps.setString(1, feedBack.feedBackID);
+			ResultSet resultSet = ps.executeQuery();
+			
+			while (resultSet.next()) {
+				System.out.println("System generated a duplicate UUID!");
+				return false;
+	        }
+			
+			
+			ps = conn.prepareStatement("INSERT INTO " + tblName
+					+ " (feedBackID, altID, username, dateCreated, description) values(?,?,?,?,?);");
+			ps.setString(1,  feedBack.feedBackID);
+			ps.setString(2,  feedBack.altID);
+            ps.setString(3,  feedBack.username);
+            ps.setString(4,  feedBack.dateCreated);
+            ps.setString(5,  feedBack.description);
+            ps.execute();
+            return true;	 
+            
+		} catch (Exception e) {
+			System.out.println("exception caught in createFeedBack");
+			throw new Exception("Falied to insert feedBack: " + e.getMessage());
+		}
+	}
+	
 	public List<FeedBack> getFeedBacks(String altID) throws Exception {
 		try {
 			List<FeedBack> feedBacks = new ArrayList<>();
@@ -47,7 +75,9 @@ java.sql.Connection conn;
 		return new FeedBack(
 				result.getString("feedBackID"),
 				result.getString("username"),
-				result.getString("dateCreated")
+				result.getString("dateCreated"),
+				result.getString("altID"),
+				result.getString("description")
 				);
 	}
 }
