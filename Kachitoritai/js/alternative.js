@@ -12,9 +12,31 @@ function processAlternative(result) {
     var upVotes
     var downVotes
     var newName
+
+    var textarea = document.getElementById('upvoteUser1');
+    textarea.value = "";
+    textarea = document.getElementById('upvoteUser2');
+    textarea.value = "";
+    textarea = document.getElementById('upvoteUser3');
+    textarea.value = "";
+    textarea = document.getElementById('upvoteUser4');
+    textarea.value = "";
+    textarea = document.getElementById('upvoteUser5');
+    textarea.value = "";
+    textarea = document.getElementById('downvoteUser1');
+    textarea.value = "";
+    textarea = document.getElementById('downvoteUser2');
+    textarea.value = "";
+    textarea = document.getElementById('downvoteUser3');
+    textarea.value = "";
+    textarea = document.getElementById('downvoteUser4');
+    textarea.value = "";
+    textarea = document.getElementById('downvoteUser5');
+    textarea.value = "";
+
     for (var i = 0; i < length; i++){
         if (alternatives[i]["noAlter"] == 1){
-            var alt1  = alternatives[0];
+            var alt1  = alternatives[i];
             upVotes  = alt1["upVotes"];
             downVotes  = alt1["downVotes"];
             document.querySelector("#alt1").value = LOD[i];
@@ -36,7 +58,7 @@ function processAlternative(result) {
             }
         }
         if (alternatives[i]["noAlter"] == 2){
-            var alt2  = alternatives[1];
+            var alt2  = alternatives[i];
             upVotes  = alt2["upVotes"];
             downVotes  = alt2["downVotes"];
             document.querySelector("#alt2").value = LOD[i];
@@ -58,7 +80,7 @@ function processAlternative(result) {
             }
         }
         if (alternatives[i]["noAlter"] == 3){
-            var alt3 = alternatives[2];
+            var alt3 = alternatives[i];
             upVotes  = alt3["upVotes"];
             downVotes  = alt3["downVotes"];
             document.querySelector("#alt3").value = LOD[i];
@@ -81,7 +103,7 @@ function processAlternative(result) {
             }
         }
         if (alternatives[i]["noAlter"] == 4){
-            var alt4  = alternatives[3];
+            var alt4  = alternatives[i];
             upVotes  = alt4["upVotes"];
             downVotes  = alt4["downVotes"];
             document.querySelector("#alt4").value = LOD[i];
@@ -104,7 +126,7 @@ function processAlternative(result) {
             }
         }
         if (alternatives[i]["noAlter"] == 5){
-            var alt5  = alternatives[4];
+            var alt5  = alternatives[i];
             upVotes  = alt5["upVotes"];
             downVotes  = alt5["downVotes"];
             document.querySelector("#alt5").value = LOD[i];
