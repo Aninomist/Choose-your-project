@@ -28,7 +28,12 @@ public class ChoiceHandler implements RequestHandler<ChoiceRequest, ChoiceRespon
     
     public ChoiceHandler() {}
 
-  
+    String getChoiceDescription(String choiceID) throws Exception{
+    	if (logger != null) { logger.log("in getChoiceDescription"); }
+    	ChoiceDAO dao = new ChoiceDAO();
+    	return dao.getChoiceDescription(choiceID);
+    }
+    
     boolean checkChoiceExist(String choiceID) throws Exception{
     	if (logger != null) { logger.log("in checkChoiceExist"); }
     	ChoiceDAO dao = new ChoiceDAO();
@@ -69,7 +74,7 @@ public class ChoiceHandler implements RequestHandler<ChoiceRequest, ChoiceRespon
 			if(req.choiceID.equals("newChoice")) {
 				if(createChoice(req.limitMember, req.numAlt, req.description)) {
 					if(new AlternativeController().createAlternatives(choiceID, req.numAlt, req.altDescription)) {
-						response = new ChoiceResponse(choiceID);
+						response = new ChoiceResponse(choiceID, req.description);
 					} else {
 					response = new ChoiceResponse("Failed on Create alternatives", 400);
 					}
@@ -78,7 +83,7 @@ public class ChoiceHandler implements RequestHandler<ChoiceRequest, ChoiceRespon
 				}
 			} else {		
 				if(checkChoiceExist(req.choiceID)) {
-					response = new ChoiceResponse(req.choiceID);
+					response = new ChoiceResponse(req.choiceID, getChoiceDescription(req.choiceID));
 				} else {
 					response = new ChoiceResponse("Unable to find choice: " + req.choiceID, 404);
 				}

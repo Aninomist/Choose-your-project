@@ -39,7 +39,7 @@ function handleRegisterClick(e) {
                     LOD[i] = alternatives[i]["description"];
                 }
                 var LOD_s = JSON.stringify(LOD)
-                alternativeURL = alternativeURL + "?choiceID="  + choiceID + "&username="  + js["response"] + "&LOD=" + LOD_s;
+                alternativeURL = alternativeURL + "?choiceID="  + choiceID + urlParams.get(choiceDes) + "&choiceDes=" + "&username=" + js["response"] + "&LOD=" + LOD_s;
                 console.log(alternativeURL);
                 window.location.replace(alternativeURL);
 

@@ -18,9 +18,9 @@
 <body><h1>Alternative page</h1>
 <h4 id="choiceID">Choice ID: choiceID</h4>
 <h4 id="choiceDes"> Description of choice: </h4>
-<!--<h6 id="description">What is the Choice about: description</h6>-->
+<h5 id="description"></h5>
 <h4 id="username">Username: username</h4>
-<h4 id="currentAltDes"></h4>
+<h5 id="currentAltDes"></h5>
 <script>
     const queryString = window.location.search;
     console.log(queryString);
@@ -31,6 +31,9 @@
     var str = document.getElementById("choiceID").innerHTML;
     var res = str.replace("choiceID", choiceID);
     document.getElementById("choiceID").innerHTML = res;
+    
+    document.getElementByID("description").innerHTML = "Choice description: " + urlParams.get(choiceDes);
+    
     getAlternative(choiceID);
 
     //const description = urlParams.get('description');

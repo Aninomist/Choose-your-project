@@ -31,7 +31,6 @@ public class ChoiceDAO {
 			ResultSet resultSet = ps.executeQuery();
 			
 			while (resultSet.next()) {
-				System.out.println("exist in db");
 				return true;
 	        }
 			
@@ -112,5 +111,24 @@ public class ChoiceDAO {
 				result.getInt("userLimit"),
 				result.getInt("userRegistered"),
 				result.getBoolean("completed"));
+	}
+
+	public String getChoiceDescription(String choiceID) throws Exception{
+		try {
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE ChoiceID = ?;");
+			ps.setString(1, choiceID);
+			ResultSet resultSet = ps.executeQuery();
+			
+			while (resultSet.next()) {
+				return resultSet.getString("description");
+	        }
+			
+			return resultSet.getString("description");
+			
+		} catch (Exception e) {
+			System.out.println("exception caught in existChoice");
+			throw new Exception("Falied to checking if ChoiceID exist: " + e.getMessage());
+		}
+
 	}
 }

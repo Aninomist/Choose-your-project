@@ -89,7 +89,9 @@ function handleCreateClick(e) {
     			console.log ("XHR:" + xhr.responseText);
     			processResponse(xhr.responseText);
 
-				signInHTML = signInURL + "?choiceID="  + choiceID;
+				var js = JSON.parse(result);
+
+				signInHTML = signInURL + "?choiceID="  + choiceID + "&choiceDes=" + js[choiceDes];
 				console.log(signInHTML)
 				window.location.replace(signInHTML);
 				
@@ -135,7 +137,9 @@ function handleLoadClick(e) {
     			console.log ("XHR:" + xhr.responseText);
     			processResponse(xhr.responseText);
 
-				signInHTML = signInURL + "?choiceID="  + choiceID;
+				var js = JSON.parse(result);
+
+				signInHTML = signInURL + "?choiceID="  + choiceID + "&choiceDes=" + js[choiceDes];
 				console.log(signInHTML)
 				window.location.replace(signInHTML);
 				
