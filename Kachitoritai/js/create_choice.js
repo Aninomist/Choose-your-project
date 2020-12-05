@@ -172,6 +172,5 @@ function isEmpty(obj) {
 		if(obj.hasOwnProperty(prop))
 			return false;
 	}
-
 	return true;
 }

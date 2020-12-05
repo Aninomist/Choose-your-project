@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Kachitoritai</title>
+    <script type="text/javascript" src="../js/api.js"></script>
+    <script type="text/javascript" src="../js/alternative.js"></script>
     <!--<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -26,6 +28,7 @@
     var str = document.getElementById("choiceID").innerHTML;
     var res = str.replace("choiceID", choiceID);
     document.getElementById("choiceID").innerHTML = res;
+    getAlternative(choiceID);
 
     //const description = urlParams.get('description');
     //str = document.getElementById("description").innerHTML;
@@ -166,24 +169,6 @@
                     </div>
                 </form>
             </div>
-            <script>
-                var LOD = JSON.parse(urlParams.get('LOD'));
-                const altNum = LOD.length;
-                document.querySelector("#alt1").value = LOD[0];
-                document.querySelector("#alt2").value = LOD[1];
-                if (altNum >= 3){
-                    document.querySelector("#alt3").value = LOD[2];
-                    document.getElementById('nav-item-3').style.visibility = 'visible';
-                }
-                if (altNum >= 4){
-                    document.querySelector("#alt4").value = LOD[3];
-                    document.getElementById('nav-item-4').style.visibility = 'visible';
-                }
-                if (altNum >= 5){
-                    document.querySelector("#alt5").value = LOD[4];
-                    document.getElementById('nav-item-5').style.visibility = 'visible';
-                }
-            </script>
         </div>
     </div>
 
