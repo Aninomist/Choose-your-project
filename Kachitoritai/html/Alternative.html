@@ -17,7 +17,7 @@
 
 <body><h1>Alternative page</h1>
 <h4 id="choiceID">Choice ID: choiceID</h4>
-<h4 id="choiceDes"> Description of choice: </h4>
+<h4 id="choiceDes"> Description of choice: choiceDes</h4>
 <h5 id="description"></h5>
 <h4 id="username">Username: username</h4>
 <h5 id="currentAltDes"></h5>
@@ -32,14 +32,14 @@
     var res = str.replace("choiceID", choiceID);
     document.getElementById("choiceID").innerHTML = res;
     
-    document.getElementById("description").innerHTML = "Choice description: " + urlParams.get('choiceDes');
+    //document.getElementById("description").innerHTML = "Choice description: " + urlParams.get('choiceDes');
     
     getAlternative(choiceID);
 
-    //const description = urlParams.get('description');
-    //str = document.getElementById("description").innerHTML;
-    //res = str.replace("description", description);
-    //document.getElementById("description").innerHTML = res;
+    const choiceDes = urlParams.get('choiceDes');
+    str = document.getElementById("choiceDes").innerHTML;
+    res = str.replace("choiceDes", choiceDes);
+    document.getElementById("choiceDes").innerHTML = res;
 
     const username = urlParams.get('username');
     str = document.getElementById("username").innerHTML;

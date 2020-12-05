@@ -7,7 +7,7 @@
 <body>
  	<h1>Register Or Sign In</h1>
  	<h1 id="choiceID">Choice ID: choiceID</h1>
- 	<h2 id="choiceDes">Choice Description: descriptionGoesHere</h2>
+ 	<h2 id="choiceDes">Choice Description: choiceDes</h2>
  	<script>
     	const queryString = window.location.search;
     	console.log(queryString);
@@ -17,8 +17,9 @@
     	var str = document.getElementById("choiceID").innerHTML
     	var res = str.replace("choiceID", choiceID);
     	document.getElementById("choiceID").innerHTML = res;
+
     	var strDescription = document.getElementById("choiceDes").innerHTML
-    	var newDescription = strDescription.replace("descriptionGoesHere", urlParams.get('choiceDes'));
+    	var newDescription = strDescription.replace("choiceDes", urlParams.get('choiceDes'));
     	document.getElementById("choiceDes").innerHTML = newDescription;
     </script>
     <h2>Please enter a username below, password is optional.</h2>
