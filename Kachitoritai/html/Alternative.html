@@ -32,7 +32,7 @@
     var res = str.replace("choiceID", choiceID);
     document.getElementById("choiceID").innerHTML = res;
     
-    document.getElementByID("description").innerHTML = "Choice description: " + urlParams.get(choiceDes);
+    document.getElementById("description").innerHTML = "Choice description: " + urlParams.get('choiceDes');
     
     getAlternative(choiceID);
 

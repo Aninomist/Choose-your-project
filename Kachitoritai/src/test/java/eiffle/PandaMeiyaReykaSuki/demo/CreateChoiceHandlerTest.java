@@ -39,15 +39,15 @@ public class CreateChoiceHandlerTest extends LambdaTest{
     public void testCreateChoice() {
     	
     	List<String> altDescription = new ArrayList<>();
-    	altDescription.add("Alt 1");
-    	altDescription.add("Alt 2");
-    	altDescription.add("Alt 3");
+    	altDescription.add("Alt 1d kjasdlhfl kjsad");
+    	altDescription.add("Alt 2 ajsdfhalkjsdfhsalkfd");
+    	altDescription.add("Alt 3 Dlka;lfdjlkfas");
     	
     	ChoiceRequest ccr = new ChoiceRequest(
     			"newChoice",
     			3,
     			3,
-    			"faketime",
+    			"This is test Descritpion",
     			altDescription);
     	
     	

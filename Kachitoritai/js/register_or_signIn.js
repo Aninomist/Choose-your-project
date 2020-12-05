@@ -1,4 +1,4 @@
-alternativeURL = "https://kachitoridaics3733groupproject.s3.us-east-2.amazonaws.com/html/alternative.html"
+alternativeURL = "https://kachitoridaics3733groupproject.s3.us-east-2.amazonaws.com/html/Alternative.html"
 function handleRegisterClick(e) {
     //document.getElementById("result").value = "This is";
     //document.createChoice.result.value = "success";
@@ -39,7 +39,7 @@ function handleRegisterClick(e) {
                     LOD[i] = alternatives[i]["description"];
                 }
                 var LOD_s = JSON.stringify(LOD)
-                alternativeURL = alternativeURL + "?choiceID="  + choiceID + urlParams.get(choiceDes) + "&choiceDes=" + "&username=" + js["response"] + "&LOD=" + LOD_s;
+                alternativeURL = alternativeURL + "?choiceID="  + choiceID + "&choiceDes=" + urlParams.get('choiceDes') + "&username=" + js["response"] + "&LOD=" + LOD_s;
                 console.log(alternativeURL);
                 window.location.replace(alternativeURL);
 

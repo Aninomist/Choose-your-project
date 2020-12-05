@@ -18,7 +18,7 @@
     	var res = str.replace("choiceID", choiceID);
     	document.getElementById("choiceID").innerHTML = res;
     	var strDescription = document.getElementById("choiceDes").innerHTML
-    	var newDescription = strDescription.replace("descriptionGoesHere", urlParams.get(choiceDes));
+    	var newDescription = strDescription.replace("descriptionGoesHere", urlParams.get('choiceDes'));
     	document.getElementById("choiceDes").innerHTML = newDescription;
     </script>
     <h2>Please enter a username below, password is optional.</h2>
