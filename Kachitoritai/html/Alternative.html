@@ -17,8 +17,10 @@
 
 <body><h1>Alternative page</h1>
 <h4 id="choiceID">Choice ID: choiceID</h4>
+<h4 id="choiceDes"> Description of choice: </h4>
 <!--<h6 id="description">What is the Choice about: description</h6>-->
 <h4 id="username">Username: username</h4>
+<h4 id="currentAltDes"></h4>
 <script>
     const queryString = window.location.search;
     console.log(queryString);
@@ -43,11 +45,11 @@
 </script>
     <div>
         <ul class="nav nav-tabs">
-            <li class="nav-item" onClick="Javascript:getAlternative(choiceID);"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">Alt 1</a></li>
-            <li class="nav-item" onClick="Javascript:getAlternative(choiceID);"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">Alt 2</a></li>
-            <li class="nav-item" style='visibility: hidden' id="nav-item-3" onClick="Javascript:getAlternative(choiceID);"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">Alt 3</a></li>
-            <li class="nav-item" style='visibility: hidden' id="nav-item-4" onClick="Javascript:getAlternative(choiceID);"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-4">Alt 4</a></li>
-            <li class="nav-item" style='visibility: hidden' id="nav-item-5" onClick="Javascript:getAlternative(choiceID);"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-5">Alt 5</a></li>
+            <li class="nav-item" onClick="Javascript:updateAlt(choiceID, 1)"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">Alt 1</a></li>
+            <li class="nav-item" onClick="Javascript:updateAlt(choiceID, 2)"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">Alt 2</a></li>
+            <li class="nav-item" style='visibility: hidden' id="nav-item-3" onClick="Javascript:updateAlt(choiceID, 3)"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">Alt 3</a></li>
+            <li class="nav-item" style='visibility: hidden' id="nav-item-4" onClick="Javascript:updateAlt(choiceID, 4)"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-4">Alt 4</a></li>
+            <li class="nav-item" style='visibility: hidden' id="nav-item-5" onClick="Javascript:updateAlt(choiceID, 5)"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-5">Alt 5</a></li>
         </ul>
         <div class="tab-content">
             <div class="tab-pane" role="tabpanel" id="tab-1">

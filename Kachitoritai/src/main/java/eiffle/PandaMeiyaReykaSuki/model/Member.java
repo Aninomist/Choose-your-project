@@ -16,4 +16,5 @@ public class Member {
 		this.username = username;
 		this.choiceID = choiceID;
 	}
+	
 }

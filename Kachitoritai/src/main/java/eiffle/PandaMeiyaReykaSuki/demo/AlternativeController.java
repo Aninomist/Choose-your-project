@@ -36,7 +36,7 @@ public class AlternativeController {
     	if (logger != null) { logger.log("in getListAlternativewWithFeedback"); }
     	
     	AlternativeDao daoAlt = new AlternativeDao();
-    	List<Alternative> altList =  daoAlt.getListAlternatives(choiceID);
+    	List<Alternative> altList =daoAlt.getListAlternatives(choiceID);
     	
     	FeedBackDAO daoFB = new FeedBackDAO();
     	UpVoteDAO daoUV = new UpVoteDAO();

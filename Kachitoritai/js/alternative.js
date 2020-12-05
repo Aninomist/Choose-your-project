@@ -190,3 +190,10 @@ function getAlternative(choiceID){
         }
     };
 }
+
+
+function updateAlt(choiceID, noAlter){
+	getAlternative(choiceID);
+	var LOD = JSON.parse(urlParams.get('LOD'));
+	document.getElementById('currentAltDes').innerHinnerHTML = 'Description of selected Alternative:' + LOD[noAlter];
+}
