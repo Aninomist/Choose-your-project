@@ -38,7 +38,8 @@ function processAlternative(result) {
         if (alternatives[i]["noAlter"] == 1){
             var alt1  = alternatives[i];
             upVotes  = alt1["upVotes"];
-            downVotes  = alt1["downVotes"];
+            downVotes = alt1["downVotes"];
+            feedBacks = alt1["feedBacks"];
             document.querySelector("#alt1").value = LOD[i];
             document.querySelector("#upvote1").value = upVotes.length;
             document.querySelector("#downvote1").value = downVotes.length;
@@ -56,11 +57,17 @@ function processAlternative(result) {
                     textareaUP.value += newName + "\n";
                 }
             }
+            for (var j = 0; j < feedBacks.length; j++) {
+                newName = feedBacks[i];
+                const textareaUP = document.getElementById('feedbackList1');
+                textareaUP.value += newName + "\n";
+            }
         }
         if (alternatives[i]["noAlter"] == 2){
             var alt2  = alternatives[i];
             upVotes  = alt2["upVotes"];
-            downVotes  = alt2["downVotes"];
+            downVotes = alt2["downVotes"];
+            feedBacks = alt2["feedBacks"];
             document.querySelector("#alt2").value = LOD[i];
             document.querySelector("#upvote2").value = upVotes.length;
             document.querySelector("#downvote2").value = downVotes.length;
@@ -78,11 +85,17 @@ function processAlternative(result) {
                     textareaUP.value += newName + "\n";
                 }
             }
+            for (var j = 0; j < feedBacks.length; j++) {
+                newName = feedBacks[i];
+                const textareaUP = document.getElementById('feedbackList1');
+                textareaUP.value += newName + "\n";
+            }
         }
         if (alternatives[i]["noAlter"] == 3){
             var alt3 = alternatives[i];
             upVotes  = alt3["upVotes"];
-            downVotes  = alt3["downVotes"];
+            downVotes = alt3["downVotes"];
+            feedBacks = alt3["feedBacks"];
             document.querySelector("#alt3").value = LOD[i];
             document.getElementById('nav-item-3').style.visibility = 'visible';
             document.querySelector("#upvote3").value = upVotes.length;
@@ -101,11 +114,17 @@ function processAlternative(result) {
                     textareaUP.value += newName + "\n";
                 }
             }
+            for (var j = 0; j < feedBacks.length; j++) {
+                newName = feedBacks[i];
+                const textareaUP = document.getElementById('feedbackList1');
+                textareaUP.value += newName + "\n";
+            }
         }
         if (alternatives[i]["noAlter"] == 4){
             var alt4  = alternatives[i];
             upVotes  = alt4["upVotes"];
-            downVotes  = alt4["downVotes"];
+            downVotes = alt4["downVotes"];
+            feedBacks = alt4["feedBacks"];
             document.querySelector("#alt4").value = LOD[i];
             document.getElementById('nav-item-4').style.visibility = 'visible';
             document.querySelector("#upvote4").value = upVotes.length;
@@ -124,11 +143,17 @@ function processAlternative(result) {
                     textareaUP.value += newName + "\n";
                 }
             }
+            for (var j = 0; j < feedBacks.length; j++) {
+                newName = feedBacks[i];
+                const textareaUP = document.getElementById('feedbackList1');
+                textareaUP.value += newName + "\n";
+            }
         }
         if (alternatives[i]["noAlter"] == 5){
             var alt5  = alternatives[i];
             upVotes  = alt5["upVotes"];
-            downVotes  = alt5["downVotes"];
+            downVotes = alt5["downVotes"];
+            feedBacks = alt5["feedBacks"];
             document.querySelector("#alt5").value = LOD[i];
             document.getElementById('nav-item-5').style.visibility = 'visible';
             document.querySelector("#upvote5").value = upVotes.length;
@@ -146,6 +171,11 @@ function processAlternative(result) {
                     const textareaUP = document.getElementById('downvoteUser5');
                     textareaUP.value += newName + "\n";
                 }
+            }
+            for (var j = 0; j < feedBacks.length; j++) {
+                newName = feedBacks[i];
+                const textareaUP = document.getElementById('feedbackList1');
+                textareaUP.value += newName + "\n";
             }
         }
         upVotes  = [];
