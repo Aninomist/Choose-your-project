@@ -149,4 +149,16 @@ public class ChoiceDAO {
 			throw new Exception("Falied to check if choice Completed: " + e.getMessage());
 		}
 	}
+	
+	public boolean completeChoice(String choiceID) throws Exception {
+		try {
+			PreparedStatement ps = conn.prepareStatement("UPDATE " + tblName + " SET completed = true WHERE choiceID = ?;");
+			ps.setString(1, choiceID);
+			ps.executeUpdate();
+			return true;
+		} catch (Exception  e) {
+			System.out.println("exception caught in completeChoice");
+			throw new Exception("Falied to completeChoice: " + e.getMessage());
+		}
+	}
 }

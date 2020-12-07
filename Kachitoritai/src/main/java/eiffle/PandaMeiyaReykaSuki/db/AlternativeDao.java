@@ -79,6 +79,18 @@ public class AlternativeDao {
 	}
 	
 	
+	public boolean finalizeAlt(String altID) throws Exception {
+		try {
+			PreparedStatement ps = conn.prepareStatement("UPDATE " + tblName + " SET isFinalAlternative = true WHERE altID = ?;");
+			ps.setString(1, altID);
+			ps.executeUpdate();
+			return true;
+		} catch (Exception  e) {
+			System.out.println("exception caught in finalizeAlt");
+			throw new Exception("Falied to finalizeAlt: " + e.getMessage());
+		}
+	}
+	
 //	public Alternative getAlternative(String choiceID, int noAlter) throws Exception {
 //		try {
 //			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE choiceID = ? AND noAlter = ?;");
