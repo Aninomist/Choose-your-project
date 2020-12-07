@@ -36,6 +36,23 @@ java.sql.Connection conn;
 		}
 	}
 	
+	public String getChoiceID(String username) throws Exception{
+		try {
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE username = ?;");
+			ps.setString(1, username);
+			ResultSet resultSet = ps.executeQuery();
+			
+			while (resultSet.next()) {
+				return resultSet.getString("choiceID");
+	        }
+			return resultSet.getString("choiceID"); //whill throw if not found, but very unlikely since always call checkMemebrExist before calling.
+			
+		} catch (Exception e) {
+			System.out.println("exception caught in getChoiceID");
+			throw new Exception("Falied get choiceID with Username: " + e.getMessage());
+		}
+	}
+	
 	public boolean addMember(Member member) throws Exception {
 		try {
 			/*System.out.println("prep statement 1 to check if choice exists ");
@@ -79,7 +96,7 @@ java.sql.Connection conn;
 			
 			while (resultSet.next()) {
 				System.out.println("User without password exist in db");
-				return true;
+				return password == null;
 	        }
 			
 			ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE username = ?;");

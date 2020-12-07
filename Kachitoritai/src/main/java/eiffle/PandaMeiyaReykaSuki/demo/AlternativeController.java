@@ -53,7 +53,7 @@ public class AlternativeController {
     }
     
 	boolean choiceCompleted(String altID) throws Exception {
-    	if (logger != null) { logger.log("in createFeedBack"); }
+    	if (logger != null) { logger.log("in choiceCompleted"); }
     	AlternativeDao daoAlt = new AlternativeDao();
     	
     	String choiceID = daoAlt.getChoiceID(altID);
