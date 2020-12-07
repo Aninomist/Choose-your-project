@@ -20,40 +20,48 @@ public class RegisterOrSignInHandler implements RequestHandler<RegisterOrSignInR
 	
 
 	@Override
-	public RegisterOrSignInResponse handleRequest(RegisterOrSignInRequest input, Context context) {
+	public RegisterOrSignInResponse handleRequest(RegisterOrSignInRequest req, Context context) {
 		logger = context.getLogger();
-		logger.log(input.toString());
+		logger.log(req.toString());
 		RegisterOrSignInResponse response;
 
 		try {
-			if (checkMemberExist(input.username)) {
-				if (checkPassword(input.username,input.password)) {
-					response = new RegisterOrSignInResponse(input.username, new AlternativeController().getListAlternative(input.choiceID));
-					return response;
+			if(!checkChoiceExist(req.choiceID)) {
+				response = new RegisterOrSignInResponse("Choice does not exist", 400); 
+			} else {				
+				/*status for checkMemeber Exist:
+				 * 0: username exist, and match the given choiceID
+				 * 1: username exist, but deson't mathch the given choiceID
+				 * 2: username does not exist;
+				 */
+				int status = checkMemberExist(req.username, req.choiceID);
+				if(status == 0) {
+					//check password
+					if (checkPassword(req.username,req.password)) {
+						response = new RegisterOrSignInResponse(req.username, new AlternativeController().getListAlternative(req.choiceID));
+					} else {
+						response = new RegisterOrSignInResponse("Username and password does not match");
+					}
+				} else if (status == 1) {
+					response = new RegisterOrSignInResponse("Username already exist, choose a new one", 400);
 				} else {
-					response = new RegisterOrSignInResponse("Username and password does not match");
-					return response;
+					//createMemebr
+					if (createMember(req.username, req.choiceID, req.password)) {
+						response = new RegisterOrSignInResponse(req.username, new AlternativeController().getListAlternative(req.choiceID));
+					} else {
+						response = new RegisterOrSignInResponse("Memeber Limit Already reached", 405);
+					}
 				}
 			}
-			if (input.password == null) {
-				if (createMember(input.username, input.choiceID)) {
-					response = new RegisterOrSignInResponse(input.username, new AlternativeController().getListAlternative(input.choiceID));
-				} else {
-					response = new RegisterOrSignInResponse("unable to create user");
-				}
-			} else {
-				if (createMember(input.username, input.choiceID, input.password)) {
-					response = new RegisterOrSignInResponse(input.username, new AlternativeController().getListAlternative(input.choiceID));
-				} else {
-					response = new RegisterOrSignInResponse("unable to create user");
-				}
-			}
+	
 		} catch (Exception e) {
-			response = new RegisterOrSignInResponse("unable to create user");
+			response = new RegisterOrSignInResponse("unable to create user Exception caught:(" + e.getMessage() + ")", 400);
 		}
 
 		return response;
 	}
+	
+	
 
 	boolean checkChoiceExist(String choiceID) throws Exception {
 		if (logger != null) {
@@ -63,55 +71,63 @@ public class RegisterOrSignInHandler implements RequestHandler<RegisterOrSignInR
 		return dao.existChoice(choiceID);
 	}
 
-	boolean createMember(String username, String choiceID, String password) throws Exception {
-		if (logger != null) {
-			logger.log("in createChoice");
-		}
-		if (!checkChoiceExist(choiceID)) {
-			return false; // Choice do not exist
-		}
-
-		MemberDAO dao = new MemberDAO();
-
-		Member member = new Member(username, choiceID, password);
-		return dao.addMember(member);
-	}
-
-	boolean createMember(String username, String choiceID) throws Exception {
-		if (logger != null) {
-			logger.log("in createChoice");
-		}
-		if (!checkChoiceExist(choiceID)) {
-			return false; // Choice do not exist
-		}
-
-		MemberDAO dao = new MemberDAO();
-
-		Member member = new Member(username, choiceID);
-		return dao.addMember(member);
-	}
-
-	boolean checkMemberExist(String username) throws Exception {
+	
+	int checkMemberExist(String username, String choiceID) throws Exception {
+		/*status for checkMemeber Exist:
+		 * 0: username exist, and match the given choiceID
+		 * 1: username exist, but deson't mathch the given choiceID
+		 * 2: username does not exist;
+		 */
 		if (logger != null) {
 			logger.log("in checkMemberExist");
 		}
 		MemberDAO dao = new MemberDAO();
-		if (dao.checkMemberExist(username)) {
-			return true;
-		}
-
-		return false;
+		if(dao.checkMemberExist(username)) {
+			if(dao.getChoiceID(username).equals(choiceID)) return 0;
+			return 1;
+			
+		} else return 2; //usename does not exist
 	}
-
+	
+	
+	
 	boolean checkPassword(String username, String password) throws Exception {
 		if (logger != null) {
 			logger.log("in checkPassword");
 		}
+		logger.log("$$$$$$$$" + password + "$$$$$$$$$$");
 		MemberDAO dao = new MemberDAO();
 		if (dao.checkPassword(username, password)) {
 			return true;
 		}
 		return false;
 	}
+	
+	
+//	boolean memberIsFull(String choiceID) throws Exception  {
+//		if (logger != null) {
+//			logger.log("in memberIsFull");
+//		}
+//		ChoiceDAO dao = new ChoiceDAO();
+//		return dao.memeberIsFull(choiceID);
+//	}
+
+
+	
+	boolean createMember(String username, String choiceID, String password) throws Exception {
+		if (logger != null) {
+			logger.log("in createMember");
+		}
+		
+		ChoiceDAO daoChoice = new ChoiceDAO();
+		MemberDAO daoMember = new MemberDAO();
+		
+		if(daoChoice.memeberIsFull(choiceID)) return false;
+		daoMember.addMember(new Member(username, choiceID, password));
+		return daoChoice.addMember(choiceID);
+
+	}
+
+
 
 }

@@ -161,4 +161,49 @@ public class ChoiceDAO {
 			throw new Exception("Falied to completeChoice: " + e.getMessage());
 		}
 	}
+
+	public boolean memeberIsFull(String choiceID) throws Exception {
+		try {
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE ChoiceID = ?;");
+			ps.setString(1, choiceID);
+			ResultSet resultSet = ps.executeQuery();
+			resultSet.next();
+
+			int userLimit = resultSet.getInt("userLimit");
+			int userRegistered = resultSet.getInt("userRegistered");
+			
+			return userRegistered >= userLimit;
+			
+		} catch (Exception e) {
+			System.out.println("exception caught in memeberIsFull");
+			throw new Exception("Falied to check if choice memeberIsFull: " + e.getMessage());
+		}
+	}
+
+	public boolean addMember(String choiceID) throws Exception{
+		try {
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE ChoiceID = ?;");
+			ps.setString(1, choiceID);
+			ResultSet resultSet = ps.executeQuery();
+			resultSet.next();
+
+			int userLimit = resultSet.getInt("userLimit");
+			int userRegistered = resultSet.getInt("userRegistered");
+			
+			if(userRegistered >= userLimit) return false;
+			
+			userRegistered++;
+			PreparedStatement ps2 = conn.prepareStatement("UPDATE " + tblName + " SET userRegistered = ? WHERE choiceID = ?;");
+			ps2.setInt(1, userRegistered);
+			ps2.setString(2, choiceID);
+			ps2.executeUpdate();
+			
+			return true;
+			
+			
+		} catch (Exception e) {
+			System.out.println("exception caught in addMember");
+			throw new Exception("Falied to addMember (increment userRegistered in choice): " + e.getMessage());
+		}
+	}
 }
