@@ -74,3 +74,4 @@ function handleVoteClick(number, flag, username){
         }
     };
 }
+

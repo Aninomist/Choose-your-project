@@ -1,0 +1,3 @@
+function handleFeedbackClick(numAlt, feedback){
+
+}
