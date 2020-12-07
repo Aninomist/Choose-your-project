@@ -12,7 +12,7 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 
-
+import eiffle.PandaMeiyaReykaSuki.db.AlternativeDao;
 import eiffle.PandaMeiyaReykaSuki.db.ChoiceDAO;
 import eiffle.PandaMeiyaReykaSuki.db.FeedBackDAO;
 import eiffle.PandaMeiyaReykaSuki.http.ChoiceRequest;
@@ -37,6 +37,8 @@ public class CreateFeedBackHandller implements RequestHandler<CreateFeedBackRequ
     	return dao.createFeedBack(feedBack);
     }
 	
+
+	
 	
 	@Override
 	public CreateFeedBackResponse handleRequest(CreateFeedBackRequest req, Context context) {
@@ -46,17 +48,16 @@ public class CreateFeedBackHandller implements RequestHandler<CreateFeedBackRequ
 		CreateFeedBackResponse response;
 		
 		try {
-			if(choiceCompleted(req.altID)) {
-				response = new CreateFeedBackResponse("Choice Has already concluded:", 405);
+			if(new AlternativeController().choiceCompleted(req.altID)) {
+				response = new CreateFeedBackResponse("Choice Has already concluded", 405);
 			}
 			
-			else 
-			
-			if(createFeedBack(req.altID, req.username, req.description)){
+			else if(createFeedBack(req.altID, req.username, req.description)){
 				response = new CreateFeedBackResponse("FeedBack successfully creates");
 			} else {
 				response = new CreateFeedBackResponse("Something went wrong, failed to create feedback", 400);
 			}
+			
 		} catch (Exception e) {
 			response = new CreateFeedBackResponse("Something went wrong: (" + e.getMessage() + ")", 400);
 		}

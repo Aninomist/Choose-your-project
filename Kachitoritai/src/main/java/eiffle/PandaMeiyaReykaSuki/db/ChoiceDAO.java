@@ -131,4 +131,22 @@ public class ChoiceDAO {
 		}
 
 	}
+
+	public boolean checkComplete(String choiceID) throws Exception{
+		try {
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE ChoiceID = ?;");
+			ps.setString(1, choiceID);
+			ResultSet resultSet = ps.executeQuery();
+			
+			while (resultSet.next()) {
+				return resultSet.getBoolean("completed");
+	        }
+			
+			return resultSet.getBoolean("completed");
+			
+		} catch (Exception e) {
+			System.out.println("exception caught in existChoice");
+			throw new Exception("Falied to check if choice Completed: " + e.getMessage());
+		}
+	}
 }

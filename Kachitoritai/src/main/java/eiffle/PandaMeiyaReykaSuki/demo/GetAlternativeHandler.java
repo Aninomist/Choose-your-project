@@ -9,6 +9,7 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 
+import eiffle.PandaMeiyaReykaSuki.db.ChoiceDAO;
 import eiffle.PandaMeiyaReykaSuki.http.ChoiceRequest;
 import eiffle.PandaMeiyaReykaSuki.http.ChoiceResponse;
 import eiffle.PandaMeiyaReykaSuki.http.GetAlternativeRequest;
@@ -27,9 +28,11 @@ public class GetAlternativeHandler implements RequestHandler<GetAlternativeReque
 		GetAlternativeResponse response;
 		
 		try {
+			ChoiceDAO dao = new ChoiceDAO();
 			
 			response = new GetAlternativeResponse(
-					new AlternativeController().getListAlternativesWithFeedback(req.choiceID));
+					new AlternativeController().getListAlternativesWithFeedback(req.choiceID),
+					dao.checkComplete(req.choiceID));
 			
 		} catch(Exception e) {
 			response = new GetAlternativeResponse("Unable to get Alternatives: " + req.choiceID + "(" + e.getMessage() + ")", 400);

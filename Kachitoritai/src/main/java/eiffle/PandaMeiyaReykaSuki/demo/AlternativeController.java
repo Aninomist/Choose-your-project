@@ -5,6 +5,7 @@ import java.util.List;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 
 import eiffle.PandaMeiyaReykaSuki.db.AlternativeDao;
+import eiffle.PandaMeiyaReykaSuki.db.ChoiceDAO;
 import eiffle.PandaMeiyaReykaSuki.db.DownVoteDAO;
 import eiffle.PandaMeiyaReykaSuki.db.FeedBackDAO;
 import eiffle.PandaMeiyaReykaSuki.db.UpVoteDAO;
@@ -47,9 +48,18 @@ public class AlternativeController {
     		alt.upVotes = daoUV.getUpVotes(alt.altID);
     		alt.downVotes = daoDV.getDownVotes(alt.altID);
     	}
-    	
-    	
-    	
+
     	return altList;
     }
+    
+	boolean choiceCompleted(String altID) throws Exception {
+    	if (logger != null) { logger.log("in createFeedBack"); }
+    	AlternativeDao daoAlt = new AlternativeDao();
+    	
+    	String choiceID = daoAlt.getChoiceID(altID);
+    	if (choiceID == "not found") return false;
+    	
+    	ChoiceDAO daoChoice = new ChoiceDAO();
+    	return daoChoice.checkComplete(choiceID);	
+	}
 }

@@ -23,6 +23,23 @@ public class AlternativeDao {
     	}
     }
 	
+	public String getChoiceID(String altID) throws Exception {
+		try {
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE altID = ?");
+			ps.setString(1, altID);
+			ResultSet resultSet = ps.executeQuery();
+			
+			while(resultSet.next()) {
+				return resultSet.getString("choiceID");
+			}
+			
+			return "not found";
+			
+		} catch(Exception e) {
+			throw new Exception("Falied to get choiceID with altID: " + e.getMessage());
+		}
+	}
+	
 	public boolean createAlternatives(int numAlt, String choiceID, List<String> altDescription) throws Exception {
 		try {
 			for (int i = 0; i < numAlt; i++) {

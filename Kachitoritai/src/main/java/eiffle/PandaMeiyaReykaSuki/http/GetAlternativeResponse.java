@@ -7,11 +7,13 @@ import eiffle.PandaMeiyaReykaSuki.model.Alternative;
 public class GetAlternativeResponse {
 	public final String response;
 	public final List<Alternative> alt;
+	public final boolean completed;
 	public final int httpCode;
 	
-	public GetAlternativeResponse(List<Alternative> alt) {
+	public GetAlternativeResponse(List<Alternative> alt, boolean completed) {
 		this.response = "Success";
 		this.alt = alt;
+		this.completed = completed;
 		this.httpCode = 200;
 	}
 	
@@ -19,6 +21,7 @@ public class GetAlternativeResponse {
 		this.response = response;
 		this.alt = null;
 		this.httpCode = httpCode;
+		this.completed = true;
 	}
 }
  
