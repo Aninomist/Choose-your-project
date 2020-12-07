@@ -180,8 +180,6 @@ function getAlternative(choiceID){
                 //signInHTML = signInURL + "?choiceID="  + choiceID;
                 //console.log(signInHTML)
                 //window.location.replace(signInHTML);
-
-
             } else {
                 alert ("unable to process request");
             }
@@ -196,4 +194,25 @@ function updateAlt(choiceID, noAlter){
 	getAlternative(choiceID);
 	var LOD = JSON.parse(urlParams.get('LOD'));
 	document.getElementById('currentAltDes').innerHinnerHTML = 'Description of selected Alternative:' + LOD[noAlter];
+}
+
+function hideButtons(){
+    document.getElementById("upvote-b1").style.visibility = 'hidden'
+    document.getElementById("upvote-b2").style.visibility = 'hidden'
+    document.getElementById("upvote-b3").style.visibility = 'hidden'
+    document.getElementById("upvote-b4").style.visibility = 'hidden'
+    document.getElementById("upvote-b5").style.visibility = 'hidden'
+
+    document.getElementById("downvote-b1").style.visibility = 'hidden'
+    document.getElementById("downvote-b2").style.visibility = 'hidden'
+    document.getElementById("downvote-b3").style.visibility = 'hidden'
+    document.getElementById("downvote-b4").style.visibility = 'hidden'
+    document.getElementById("downvote-b5").style.visibility = 'hidden'
+
+    document.getElementById("feedback-b1").style.visibility = 'hidden'
+    document.getElementById("feedback-b2").style.visibility = 'hidden'
+    document.getElementById("feedback-b3").style.visibility = 'hidden'
+    document.getElementById("feedback-b4").style.visibility = 'hidden'
+    document.getElementById("feedback-b5").style.visibility = 'hidden'
+
 }
