@@ -87,7 +87,7 @@ function processAlternative(result) {
             }
             for (var j = 0; j < feedBacks.length; j++) {
                 newName = feedBacks[i];
-                const textareaUP = document.getElementById('feedbackList1');
+                const textareaUP = document.getElementById('feedbackList2');
                 textareaUP.value += newName + "\n";
             }
         }
@@ -116,7 +116,7 @@ function processAlternative(result) {
             }
             for (var j = 0; j < feedBacks.length; j++) {
                 newName = feedBacks[i];
-                const textareaUP = document.getElementById('feedbackList1');
+                const textareaUP = document.getElementById('feedbackList3');
                 textareaUP.value += newName + "\n";
             }
         }
@@ -145,7 +145,7 @@ function processAlternative(result) {
             }
             for (var j = 0; j < feedBacks.length; j++) {
                 newName = feedBacks[i];
-                const textareaUP = document.getElementById('feedbackList1');
+                const textareaUP = document.getElementById('feedbackList4');
                 textareaUP.value += newName + "\n";
             }
         }
@@ -174,7 +174,7 @@ function processAlternative(result) {
             }
             for (var j = 0; j < feedBacks.length; j++) {
                 newName = feedBacks[i];
-                const textareaUP = document.getElementById('feedbackList1');
+                const textareaUP = document.getElementById('feedbackList5');
                 textareaUP.value += newName + "\n";
             }
         }
