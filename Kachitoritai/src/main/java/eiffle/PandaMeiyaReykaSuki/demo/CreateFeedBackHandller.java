@@ -46,6 +46,12 @@ public class CreateFeedBackHandller implements RequestHandler<CreateFeedBackRequ
 		CreateFeedBackResponse response;
 		
 		try {
+			if(choiceCompleted(req.altID)) {
+				response = new CreateFeedBackResponse("Choice Has already concluded:", 405);
+			}
+			
+			else 
+			
 			if(createFeedBack(req.altID, req.username, req.description)){
 				response = new CreateFeedBackResponse("FeedBack successfully creates");
 			} else {

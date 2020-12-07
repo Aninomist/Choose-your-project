@@ -1,0 +1,476 @@
+commit fc96a5f258b25b38aa2128cb87e88b8bb88312c2
+Merge: 9c11afc 5ab7852
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Sat Dec 5 15:52:24 2020 -0500
+
+    Merge branch 'master' of https://github.com/Aninomist/Kachitoritai
+
+commit 9c11afcb9d3f41239a1b815beb1ebe04d195825d
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Sat Dec 5 15:51:38 2020 -0500
+
+    Maomao mo le
+
+commit 5ab7852610817a567badbd907c2a9093623d61a9
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Sat Dec 5 15:47:15 2020 -0500
+
+    day5
+
+commit af509940f43fad7a64461cfaf7f0a1ed640689b4
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Sat Dec 5 13:32:59 2020 -0500
+
+    Tons of bugs :) Maomao jia you
+
+commit 0517d17045bb378f07ffa44da92d0a37de50bf4c
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Sat Dec 5 12:44:30 2020 -0500
+
+    added Description for choice and alt
+
+commit 5e8ceda378981ce3c6b272e41721b64441731132
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Sat Dec 5 12:13:51 2020 -0500
+
+    Should Update Alt Des now
+
+commit 3b86282c7f7e282551d5084792a8b3f6be710058
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Sat Dec 5 03:42:18 2020 -0500
+
+    Finished front end development for Iteration #2
+
+commit dac2b9dd602f9518c41c3053022620d7a2b0b211
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Sat Dec 5 02:36:35 2020 -0500
+
+    Enable an Administrator to Generate Report For Existing Choices
+
+commit 3f4488d2fe0bd23e39abb9afb3788faa911ed591
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Sat Dec 5 02:01:42 2020 -0500
+
+    Finished alternative display and refresh
+
+commit 8b38854256f8ebbd89167f133906b7c39d23215a
+Merge: 9e8e7a5 a24a469
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Fri Dec 4 14:34:01 2020 -0500
+
+    Merge branch 'master' of https://github.com/Aninomist/Kachitoritai
+
+commit 9e8e7a5fffdf4062b4fa00fda060cb1bc53a59f8
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Fri Dec 4 14:33:57 2020 -0500
+
+    Added lambda for AdminChoiceHandler
+
+commit a24a469c3f3da00938de82db43b1c5be9cb7480b
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Fri Dec 4 00:04:29 2020 -0500
+
+    alternative.html mostly done
+
+commit fe36274fda42d0fdbbdc122ea6de3c2324098e7c
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Thu Dec 3 22:40:13 2020 -0500
+
+    Done alternative.html
+
+commit cadf3bc4c79c9c2dfde7a0c7d79a1852c0ab6dc3
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Thu Dec 3 22:25:30 2020 -0500
+
+    Up Down vote functionality.
+
+commit e672cc5c574c88d8b59e0b2077c124df3d384677
+Merge: cdc0464 dafd7bf
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Thu Dec 3 20:26:26 2020 -0500
+
+    Merge branch 'master' of https://github.com/Aninomist/Kachitoritai
+
+commit cdc0464f768cc8f57ff8fc7a4b6a55f7c02ca307
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Thu Dec 3 20:24:42 2020 -0500
+
+    Updated GetAlternativeRequest
+
+commit dafd7bf7312329c37c15b2e363e6fe4ae111e51a
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Thu Dec 3 20:16:06 2020 -0500
+
+    Update register_or_signIn.js
+
+commit 2782fa2c454bec659b8f924c99dd36beb280deba
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Thu Dec 3 20:09:39 2020 -0500
+
+    Added the ability to create FeedBack
+
+commit 62da1b51fc4c6c43e1c5a87020e966ca6dd26191
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Thu Dec 3 19:30:46 2020 -0500
+
+    Added AlternativeHandler
+    
+    it can get alternatives from choice with Feedbacks
+
+commit b228ae1686a67c086b1e7e2e44f506b5fea3541e
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Thu Dec 3 02:00:21 2020 -0500
+
+    Worked a little more on the front end
+
+commit cff402df308f58f4180169e71062978bf3d1b03e
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Thu Dec 3 00:14:21 2020 -0500
+
+    Cleaning up front end
+    
+    Sorted out the typo and alternative number problem. Created the Alternative html.
+
+commit 8e4b368cf8e114037bc913900c0a8e79f0b08ffd
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Tue Nov 24 21:30:22 2020 -0500
+
+    Change check numAlt in createChoice logic
+
+commit 7518b055198b7376e259c29c2b8734c71942409e
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Tue Nov 24 21:03:30 2020 -0500
+
+    Add createAlternative with description and usersingin now return alternatives.
+
+commit dc60ab781e2a3ea46d26b169a2e51d2d58d7e36b
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Tue Nov 24 20:26:33 2020 -0500
+
+    Updated index.html and create_choice.js
+
+commit 126f5d4197836935efbcc1f53e705b2ec9a35bd7
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Tue Nov 24 16:31:06 2020 -0500
+
+    StupidEclipse
+
+commit fc34daf5194278c7e1cf6004af40494cb8e5c948
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Tue Nov 24 16:15:03 2020 -0500
+
+    Intellij
+
+commit 19b0263c3e664232f3ad48b368027dfd7108e6e5
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Tue Nov 24 14:53:00 2020 -0500
+
+    MemberDAO finalized
+    
+    now can access admin page from index
+
+commit 741d761edc231f881d20c705e34e9d64949390de
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Tue Nov 24 14:31:57 2020 -0500
+
+    Update MemberDAO.java
+    
+    Updated the case when the user had password but not inputed it when logging in
+
+commit ac41e3cb9904ff78c8b35293d66b40d7a3ebf548
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Tue Nov 24 14:19:52 2020 -0500
+
+    Update MemberDAO.java
+    
+    MemberDAO is in final logic
+
+commit 4b3a0a53f08b9d471b47c0ec2b9d396a860b9532
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Tue Nov 24 13:17:44 2020 -0500
+
+    Change Password check logic
+
+commit c46a65cc93a7d05773abdf366d2aa3ef90ed0f97
+Merge: 3fb6e5d 586b55c
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Tue Nov 24 01:26:46 2020 -0500
+
+    Merge branch 'master' of https://github.com/Aninomist/Kachitoritai
+
+commit 3fb6e5d34e72f35d6e9574db8fcb60893218a49e
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Tue Nov 24 01:26:42 2020 -0500
+
+    Iteration 1 complete
+
+commit 586b55c45699ecd6cec5cafd97c35d8821e62b61
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Tue Nov 24 01:14:04 2020 -0500
+
+    Update MemberDAO.java
+    
+    The create user and login is now ok in lambda function side
+
+commit 351aca46e1fa6fdbfb1719e98d7e15cc84a73923
+Merge: 0d879bc 6892261
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Tue Nov 24 00:59:56 2020 -0500
+
+    Merge branch 'master' of https://github.com/Aninomist/Kachitoritai
+
+commit 0d879bc36ba749172e1e90d09f2fd49ff28b4c8f
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Tue Nov 24 00:59:44 2020 -0500
+
+    Update AlternativeDao.java
+
+commit 68922618a9c8ac6fdc9ee555b235f4a923a11ef0
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Tue Nov 24 00:59:07 2020 -0500
+
+    working on member related stuff
+
+commit 7418a880dc49cca1c44d6423df272ab01d22e4b6
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Tue Nov 24 00:57:26 2020 -0500
+
+    added AlternativeDao and Alternative class
+
+commit 02e5829fba23423ee2da4449717b94809b7e1fde
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Tue Nov 24 00:35:50 2020 -0500
+
+    Rename to RegisterOrSignInHandler
+
+commit 5b8be6ab6368fe151a31664190dac2dee3b02d34
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Tue Nov 24 00:26:42 2020 -0500
+
+    createMember
+    
+    passed lambda test and api test. Modifying json files
+
+commit 966e6e20274e9058491d6663ad69e49039c3aa09
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Mon Nov 23 21:18:37 2020 -0500
+
+    Reformated choice related files
+
+commit 6a74cef56ef1fbdfffff69cb0f6ca88cc15bf68a
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Mon Nov 23 15:05:04 2020 -0500
+
+    Update create_choice.js
+    
+    signInURL is now a S3 reference
+
+commit f515ecd8f61f7d33963fe236385b6403e4160fb2
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Mon Nov 23 15:01:38 2020 -0500
+
+    Update create_choice.js
+
+commit e9e7b569353f04aa599e9fd0a25d6fb952f12368
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Mon Nov 23 14:54:38 2020 -0500
+
+    updated handler to find choice and html
+
+commit caa119c1917e01a46e5e2b6fc188965df6c778a7
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Mon Nov 23 14:09:05 2020 -0500
+
+    Redirect with choice ID
+
+commit 88ae6df64f6ed457cc865bd34548ffd0c95f3311
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Mon Nov 23 13:16:48 2020 -0500
+
+    ChoiceResponse added 406 response and return choice ID
+    
+    406: Alternative number need to be between 2-5
+
+commit 86f7a0a94a5f93127c7a094aa33d4283f89be958
+Merge: a8d7326 b6f0a41
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Sun Nov 22 14:23:57 2020 -0500
+
+    Merge branch 'master' of https://github.com/Aninomist/Kachitoritai
+
+commit a8d73264d135949aca98235527d30c7e39f5e342
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Sun Nov 22 14:23:36 2020 -0500
+
+    Updated Request to not include LocalDateTime
+    
+    LocalDateTime is now aquired within Hanlder
+
+commit b6f0a41458066e80132fd08aeaa3e155b0d239cf
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Sun Nov 22 14:22:57 2020 -0500
+
+    Updated create_choice.js
+
+commit fd1eac62afdb6aee8ba43babf0977d0a40181194
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Sun Nov 22 14:08:49 2020 -0500
+
+    Updated create_choice.js
+
+commit c256656b57fbfc6a2fbc287542b2dbf561284f98
+Merge: 9300634 3eb029d
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Sun Nov 22 13:35:38 2020 -0500
+
+    Merge branch 'html'
+
+commit 93006340955e2620a8339ec91e0e55b401346473
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Sun Nov 22 13:29:45 2020 -0500
+
+    Deleted HTML from master to pull from html
+
+commit c818db20057f9929cbb0b71a30d588cd8eb84312
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Sun Nov 22 01:13:56 2020 -0500
+
+    Fix some random stuff in choiceDAO
+    
+    Need to clear out some print statement
+
+commit 154dd6a2c76ca64423789fa4a364ef34000ad313
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Sun Nov 22 00:32:34 2020 -0500
+
+    Updated pom and dependencies
+
+commit a5e8411947d7fe65e225cbbd9cabebaa1b39856f
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Sun Nov 22 00:13:04 2020 -0500
+
+    Update DatabaseUtil.java
+
+commit bcae6d5c2fefb58144e6a02d958fe466e9855cee
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Sun Nov 22 00:12:27 2020 -0500
+
+    Added test for handler
+    
+    Fail on connecting to database
+
+commit 3eb029d8fdc228cf85e29535b8a17cd1e9ba811e
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Sun Nov 22 00:03:36 2020 -0500
+
+    Fixed the admin html read only issue
+
+commit 5519e305d30c4b7c108e8a9978cbe5ba7478b4da
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Sat Nov 21 23:59:49 2020 -0500
+
+    Extracted create_choice JavaScript from index html.
+
+commit 434f92cfc5d9c00b7441d8c34fdfe22bdcfb6f7c
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Sat Nov 21 23:24:52 2020 -0500
+
+    Modified index page, created admin page.
+
+commit 15f19ada8633dc44e498500a9cde0b83105248ad
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Sat Nov 21 23:24:20 2020 -0500
+
+    Updated CreateChoiceHandler
+    
+    now have all 7 fields
+
+commit fd895677f2eeec24dbe3d3ed597eaa9fef2e05ac
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Sat Nov 21 22:16:39 2020 -0500
+
+    Added CreateChoiceHandler
+    
+    Last time eclipse didnt save files, so nothing was updated
+
+commit fc052e7006185ae6ad016ad353689258b06091e7
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Sat Nov 21 22:12:05 2020 -0500
+
+    add CreateChoiceHandler
+    
+    Need to get database created to test
+
+commit 1cd931ccc8f3122e86e4bd6e401dfcaa1a315767
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Sat Nov 21 21:07:25 2020 -0500
+
+    Landing Page Setup
+    
+    Created files for CretateChoice and Register
+
+commit cb78ba7ff643ae31e44c841740d52a9aec1e78e6
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Fri Nov 20 16:42:06 2020 -0500
+
+    test4
+
+commit 952a6483908aa1b03be4c1171af2ba22b63d1e52
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Fri Nov 20 16:40:53 2020 -0500
+
+    test3
+    
+    s
+
+commit 8f859d50463c1ef039355d2c2002d696daf09cf3
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Fri Nov 20 16:39:46 2020 -0500
+
+    test2
+
+commit b25c82db9e28b4ceb9ce237680f433429858d0a5
+Merge: 27eb040 22930ea
+Author: Fan Gong <54560028+Aninomist@users.noreply.github.com>
+Date:   Fri Nov 20 16:37:06 2020 -0500
+
+    Merge pull request #2 from Aninomist/Meilaoshi
+    
+    Meiya said so.
+
+commit 22930ea1d3c3df2935833a3b69dd985544be07a6
+Author: Shundong Li <sli19@wpi.edu>
+Date:   Fri Nov 20 16:28:40 2020 -0500
+
+    Meiya said so.
+
+commit 27eb040e2a41ce96ea8b9afa7d28625511c32a0c
+Merge: 5664dfb 22f39a2
+Author: Fan Gong <54560028+Aninomist@users.noreply.github.com>
+Date:   Fri Nov 20 16:09:58 2020 -0500
+
+    Merge pull request #1 from Aninomist/TestingNewBranch
+    
+    push to new branch (test pull on master)
+
+commit 22f39a268e03cc0ec886a55a03f9eb25e27e0561
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Fri Nov 20 16:09:06 2020 -0500
+
+    push to new branch
+    
+    test push to new branch
+
+commit 5664dfb70e660f43f9cb30fa2998c0ff781c5b12
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Fri Nov 20 16:08:14 2020 -0500
+
+    test commit
+    
+    test
+
+commit 7a51e86d8a814c907fa4a913ed25a92bc4cc3e4f
+Author: Aninomist <54560028+Aninomist@users.noreply.github.com>
+Date:   Fri Nov 20 16:05:50 2020 -0500
+
+    Project Finally Finally is setted up

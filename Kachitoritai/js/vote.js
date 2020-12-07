@@ -53,7 +53,12 @@ function handleVoteClick(number, flag, username){
 
                         if (reponseCode == 200) {
                             getAlternative(choiceID);
-                        } else {
+                        } else if( responseCode == 405){
+							alert ("Choice already Concluded, can't vote anymore");
+							//hide buttons
+						}
+							else
+						{
                             alert("unable to process request");
                         }
                     } else {
