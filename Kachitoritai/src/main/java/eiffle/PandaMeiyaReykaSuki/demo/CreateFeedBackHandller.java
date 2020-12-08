@@ -48,6 +48,8 @@ public class CreateFeedBackHandller implements RequestHandler<CreateFeedBackRequ
 		CreateFeedBackResponse response;
 		
 		try {
+			
+			
 			if(new AlternativeController().choiceCompleted(req.altID)) {
 				response = new CreateFeedBackResponse("Choice Has already concluded", 405);
 			}

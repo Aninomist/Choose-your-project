@@ -1,5 +1,8 @@
 package eiffle.PandaMeiyaReykaSuki.demo;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import com.amazonaws.services.lambda.runtime.Context;
@@ -17,17 +20,37 @@ public class AdminChoiceHandler implements RequestHandler<AdminChoiceRequest, Ad
 	LambdaLogger logger;
 	
 	
-	boolean deleteNumDaysOldChoices(int num) {
-		//TODO
-		return false;
-	}
-	
 	
 	List<Choice> adminListChoices() throws Exception {
 		if (logger != null) { logger.log("in adminListChoices"); }
     	ChoiceDAO dao = new ChoiceDAO();
     	
-    	return dao.getAllChoices();
+    	List<Choice> choices =  dao.getAllChoices();
+    	Collections.sort(choices, (x, y) -> LocalDateTime.parse(x.dateCreated).compareTo(LocalDateTime.parse(y.dateCreated)));
+    	return choices;
+	}
+	
+	
+	
+	boolean deleteNumDaysOldChoices(int num) throws Exception {
+		if (logger != null) { logger.log("in deleteNumDaysOldChoices"); }
+    	ChoiceDAO dao = new ChoiceDAO();
+    	
+    	List<Choice> choices= dao.getAllChoices();
+    	List<String> toDelete = new ArrayList<>();
+    	
+    	LocalDateTime staleDate = LocalDateTime.now().minusDays(num);
+    	
+    	for(Choice choice : choices) {
+    		if(LocalDateTime.parse(choice.dateCreated).isBefore(staleDate))
+    			toDelete.add(choice.choiceID);
+    	}
+    	
+    	for(String choiceID : toDelete) {
+    		dao.deleteChoice(choiceID);
+    	}
+    	
+    	return true;
 	}
 	
 	@Override
@@ -36,11 +59,14 @@ public class AdminChoiceHandler implements RequestHandler<AdminChoiceRequest, Ad
 		logger.log(req.toString());
 		
 		AdminChoiceResponse response;
+		logger.log("$$$$$$$$$$$$$" + req.daysToDelete + "$$$$$$$$$$$$$$");
 		
 		try {
-			if(req.daysToDelete == 0) {
+			if(req.daysToDelete < 0) {
+				logger.log("|||||||" + "just listing" + "||||||");
 				response = new AdminChoiceResponse(adminListChoices());
 			} else {
+				logger.log("|||||||" + "deleting" + "||||||");
 				if(deleteNumDaysOldChoices(req.daysToDelete))
 					response = new AdminChoiceResponse(adminListChoices());
 				else 
