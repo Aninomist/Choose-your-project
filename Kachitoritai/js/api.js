@@ -5,4 +5,4 @@ var participateChoice_url = " https://vo4fyk4zjk.execute-api.us-east-2.amazonaws
 var getAlternative_url = meilaoshiNB + "getAllAlternatives"; // POST
 var getChoice_url = meilaoshiNB + "admin";// POST
 var vote_url = meilaoshiNB + "ApprovalOrDisapproval"; // POST
-var createFeedBack_url = meilaoshiNB + "";
+var createFeedBack_url = meilaoshiNB + "addFeedback"; //POST
