@@ -34,10 +34,10 @@ function processFeedback(result) {
                     for (let i = 0; i < feedbacks.length; i++) {
                         temp = "";
                         temp += "Feedback #" + i.toString() + ": ";
-                        temp += "FeedbackID: " + feedbacks[i]["feedBackID"] + "; ";
+                        //temp += "FeedbackID: " + feedbacks[i]["feedBackID"] + "; ";
                         temp += "Timestamp: " + feedbacks[i]["dateCreated"] + "; ";
                         temp += "Owner: " + feedbacks[i]["username"] + "; ";
-                        temp += "Alternative ID: " + feedbacks[i]["altID"] + "; ";
+                        //temp += "Alternative ID: " + feedbacks[i]["altID"] + "; ";
                         temp += "Description: " + feedbacks[i]["description"] + "\n\n";
                         const textarea = document.getElementById('feedbackList1');
                         textarea.value += temp;
@@ -58,10 +58,10 @@ function processFeedback(result) {
                     for (let i = 0; i < feedbacks.length; i++) {
                         temp = "";
                         temp += "Feedback #" + i.toString() + ": ";
-                        temp += "FeedbackID: " + feedbacks[i]["feedBackID"] + "; ";
+                        //temp += "FeedbackID: " + feedbacks[i]["feedBackID"] + "; ";
                         temp += "Timestamp: " + feedbacks[i]["dateCreated"] + "; ";
                         temp += "Owner: " + feedbacks[i]["username"] + "; ";
-                        temp += "Alternative ID: " + feedbacks[i]["altID"] + "; ";
+                        //temp += "Alternative ID: " + feedbacks[i]["altID"] + "; ";
                         temp += "Description: " + feedbacks[i]["description"] + "\n\n";
                         const textarea = document.getElementById('feedbackList2');
                         textarea.value += temp;
@@ -82,10 +82,10 @@ function processFeedback(result) {
                     for (let i = 0; i < feedbacks.length; i++) {
                         temp = "";
                         temp += "Feedback #" + i.toString() + ": ";
-                        temp += "FeedbackID: " + feedbacks[i]["feedBackID"] + "; ";
+                        //temp += "FeedbackID: " + feedbacks[i]["feedBackID"] + "; ";
                         temp += "Timestamp: " + feedbacks[i]["dateCreated"] + "; ";
                         temp += "Owner: " + feedbacks[i]["username"] + "; ";
-                        temp += "Alternative ID: " + feedbacks[i]["altID"] + "; ";
+                        //temp += "Alternative ID: " + feedbacks[i]["altID"] + "; ";
                         temp += "Description: " + feedbacks[i]["description"] + "\n\n";
                         const textarea = document.getElementById('feedbackList3');
                         textarea.value += temp;
@@ -106,10 +106,10 @@ function processFeedback(result) {
                     for (let i = 0; i < feedbacks.length; i++) {
                         temp = "";
                         temp += "Feedback #" + i.toString() + ": ";
-                        temp += "FeedbackID: " + feedbacks[i]["feedBackID"] + "; ";
+                        //temp += "FeedbackID: " + feedbacks[i]["feedBackID"] + "; ";
                         temp += "Timestamp: " + feedbacks[i]["dateCreated"] + "; ";
                         temp += "Owner: " + feedbacks[i]["username"] + "; ";
-                        temp += "Alternative ID: " + feedbacks[i]["altID"] + "; ";
+                        //temp += "Alternative ID: " + feedbacks[i]["altID"] + "; ";
                         temp += "Description: " + feedbacks[i]["description"] + "\n\n";
                         const textarea = document.getElementById('feedbackList4');
                         textarea.value += temp;
@@ -130,10 +130,10 @@ function processFeedback(result) {
                     for (let i = 0; i < feedbacks.length; i++) {
                         temp = "";
                         temp += "Feedback #" + i.toString() + ": ";
-                        temp += "FeedbackID: " + feedbacks[i]["feedBackID"] + "; ";
+                        //temp += "FeedbackID: " + feedbacks[i]["feedBackID"] + "; ";
                         temp += "Timestamp: " + feedbacks[i]["dateCreated"] + "; ";
                         temp += "Owner: " + feedbacks[i]["username"] + "; ";
-                        temp += "Alternative ID: " + feedbacks[i]["altID"] + "; ";
+                        //temp += "Alternative ID: " + feedbacks[i]["altID"] + "; ";
                         temp += "Description: " + feedbacks[i]["description"] + "\n\n";
                         const textarea = document.getElementById('feedbackList5');
                         textarea.value += temp;
@@ -204,6 +204,7 @@ function handleFeedbackClick(username, number, feedback) {
                         if (reponseCode == 200) {
                             getAlternativeFB(choiceID);
                             processFeedback(responseJs);
+                            getAlternative(choiceID)
                         } else if( responseCode == 405){
                             alert ("Choice already Concluded, can't vote anymore");
                             //hide buttons

@@ -1,23 +1,32 @@
-function processChoice(result) {
+function processChoice(result, time) {
     console.log("result:" + result);
     var js = JSON.parse(result);
     var choices = js["choices"];
     var length = choices.length;
     var newChoice;
+
     const textarea = document.getElementById('ListOfChoices');
+    textarea.value = "Choice# " + "ChoiceID                               " + "dateCreated               " + "completed? \n";
     if (length == 0){
-        textarea.value = "There is no Choice created at all!";
+        textarea.value = "There is currently no Choice created at all!";
+        if (time !== -1) {
+            const deleteResult = document.getElementById('result');
+            deleteResult.value = "Delete complete, remaining Choices will be shown above";
+        }
         return;
     }
     for (var i = 0; i < length; i++){
         newChoice = "";
-        newChoice += "Choice #" + i.toString() + ": ";
-        newChoice += "ChoiceID: " + choices[i]["choiceID"] + "; ";
-        newChoice += "dateCreated: " + choices[i]["dateCreated"] + "; ";
-        newChoice += "completed?: " + choices[i]["completed"] + "\n\n";
+        newChoice += i.toString() + "       ";
+        newChoice += choices[i]["choiceID"] + "   ";
+        newChoice += choices[i]["dateCreated"] + "   ";
+        newChoice += choices[i]["completed"] + "\n\n";
         textarea.value += newChoice;
     }
-
+    if (time !== -1) {
+        const deleteResult = document.getElementById('result');
+        deleteResult.value = "Delete complete, remaining Choices will be shown above";
+    }
 }
 
 function getChoice(time){
@@ -25,8 +34,13 @@ function getChoice(time){
     xhr.open("POST", getChoice_url, true);
 
     var data = {};
-    data["choiceID"] = time;
+    data["daysToDelete"] = parseFloat(time);
     var js = JSON.stringify(data);
+    if (Number.isNaN(data["daysToDelete"])){
+        alert("Plz put integer or double in that field");
+        return
+    }
+
     // send the collected data as JSON
     xhr.send(js);
 
@@ -43,7 +57,7 @@ function getChoice(time){
             if (reponseCode == 200) {
 
                 console.log ("XHR:" + xhr.responseText);
-                processChoice(xhr.responseText);
+                processChoice(xhr.responseText, time);
 
                 //signInHTML = signInURL + "?choiceID="  + choiceID;
                 //console.log(signInHTML)
