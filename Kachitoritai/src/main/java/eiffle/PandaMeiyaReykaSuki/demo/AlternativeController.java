@@ -1,5 +1,7 @@
 package eiffle.PandaMeiyaReykaSuki.demo;
 
+import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
@@ -10,6 +12,7 @@ import eiffle.PandaMeiyaReykaSuki.db.DownVoteDAO;
 import eiffle.PandaMeiyaReykaSuki.db.FeedBackDAO;
 import eiffle.PandaMeiyaReykaSuki.db.UpVoteDAO;
 import eiffle.PandaMeiyaReykaSuki.model.Alternative;
+import eiffle.PandaMeiyaReykaSuki.model.FeedBack;
 
 public class AlternativeController {
 	
@@ -45,6 +48,7 @@ public class AlternativeController {
     	
     	for(Alternative alt : altList) {
     		alt.feedBacks = daoFB.getFeedBacks(alt.altID);
+    		Collections.sort(alt.feedBacks, (x, y) -> LocalDateTime.parse(x.dateCreated).compareTo(LocalDateTime.parse(y.dateCreated)));
     		alt.upVotes = daoUV.getUpVotes(alt.altID);
     		alt.downVotes = daoDV.getDownVotes(alt.altID);
     	}
@@ -62,4 +66,6 @@ public class AlternativeController {
     	ChoiceDAO daoChoice = new ChoiceDAO();
     	return daoChoice.checkComplete(choiceID);	
 	}
+	
+	
 }

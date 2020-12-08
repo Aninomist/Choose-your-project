@@ -76,6 +76,19 @@ public class ChoiceDAO {
 
 	}
 	
+	public boolean deleteChoice(String choiceID) throws Exception {
+		try {
+			PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblName + " WHERE choiceID = ?;");
+			ps.setString(1, choiceID);
+			ps.executeUpdate();
+			
+			return true;
+		} catch (Exception e) {
+			System.out.println("exception caught in deleteChoice");
+			throw new Exception("Falied on deleteChoice: " + e.getMessage());
+		}
+	}
+	
 	public List<Choice> getAllChoices() throws Exception {
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName +";");

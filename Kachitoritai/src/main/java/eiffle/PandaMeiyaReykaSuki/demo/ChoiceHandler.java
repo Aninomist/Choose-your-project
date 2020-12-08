@@ -49,6 +49,7 @@ public class ChoiceHandler implements RequestHandler<ChoiceRequest, ChoiceRespon
     	
 //    	if(exist) {return false;}
     	
+    	if(description == null || limitMember <= 0) return false;
     	
     	System.out.println("dao acquired in Create Choice");
     	if(numAlt >= 2 && numAlt <= 5) {
@@ -79,7 +80,7 @@ public class ChoiceHandler implements RequestHandler<ChoiceRequest, ChoiceRespon
 					response = new ChoiceResponse("Failed on Create alternatives", 400);
 					}
 				} else {
-					response = new ChoiceResponse("Unable to create choice, number of alternatives can only be between 2 and 5", 406);
+					response = new ChoiceResponse("Unable to create choice, number of alternatives can only be between 2 and 5, Member has to be greater than 0, and Choice Description cannot be empty", 406);
 				}
 			} else {		
 				if(checkChoiceExist(req.choiceID)) {

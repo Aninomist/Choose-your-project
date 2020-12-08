@@ -8,8 +8,8 @@ public class FinalizeAlternativeResponse {
 	public final String response;
 	public final int httpCode;
 	
-	public FinalizeAlternativeResponse() {
-		this.response = "Success";
+	public FinalizeAlternativeResponse(String response) {
+		this.response = response;
 		this.httpCode = 200;
 	}
 	
