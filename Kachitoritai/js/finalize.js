@@ -52,6 +52,7 @@ function handleFinalizeClick(number){
                         reponseCode = responseJs.httpCode;
 
                         if (reponseCode == 200) {
+                            finalAlt = number;
                             getAlternative(choiceID);
                         } else if( responseCode == 405){
                             alert ("Choice already Concluded, can't vote anymore");

@@ -7,8 +7,11 @@ function processAlternative(result) {
 
     console.log("result:" + result);
     var js = JSON.parse(result);
+    processFeedback(result);
     if (js["completed"] === true){
-        alert ("Choice already Concluded, can't vote and comment anymore");
+        setFinalAlt(result)
+        var alertString = "Choice already Concluded, can't vote and comment anymore\nThe final alternative is alternative " + finalAlt.toString();
+        alert (alertString);
         //hideButtons();
     }
     var alternatives = js["alt"];
@@ -38,6 +41,17 @@ function processAlternative(result) {
     textarea = document.getElementById('downvoteUser5');
     textarea.value = "";
 
+    // textarea = document.getElementById('feedbackList1');
+    // textarea.value = "";
+    // textarea = document.getElementById('feedbackList2');
+    // textarea.value = "";
+    // textarea = document.getElementById('feedbackList3');
+    // textarea.value = "";
+    // textarea = document.getElementById('feedbackList4');
+    // textarea.value = "";
+    // textarea = document.getElementById('feedbackList5');
+    // textarea.value = "";
+
     for (var i = 0; i < length; i++){
         if (alternatives[i]["noAlter"] == 1){
             var alt1  = alternatives[i];
@@ -61,11 +75,11 @@ function processAlternative(result) {
                     textareaUP.value += newName + "\n";
                 }
             }
-            for (var j = 0; j < feedBacks.length; j++) {
-                newName = feedBacks[i];
-                const textareaUP = document.getElementById('feedbackList1');
-                textareaUP.value += newName + "\n";
-            }
+            // for (var j = 0; j < feedBacks.length; j++) {
+            //     newName = feedBacks[j];
+            //     const textareaUP = document.getElementById('feedbackList1');
+            //     textareaUP.value += newName + "\n";
+            // }
         }
         if (alternatives[i]["noAlter"] == 2){
             var alt2  = alternatives[i];
@@ -89,11 +103,11 @@ function processAlternative(result) {
                     textareaUP.value += newName + "\n";
                 }
             }
-            for (var j = 0; j < feedBacks.length; j++) {
-                newName = feedBacks[i];
-                const textareaUP = document.getElementById('feedbackList2');
-                textareaUP.value += newName + "\n";
-            }
+            // for (var j = 0; j < feedBacks.length; j++) {
+            //     newName = feedBacks[j];
+            //     const textareaUP = document.getElementById('feedbackList2');
+            //     textareaUP.value += newName + "\n";
+            // }
         }
         if (alternatives[i]["noAlter"] == 3){
             var alt3 = alternatives[i];
@@ -118,11 +132,11 @@ function processAlternative(result) {
                     textareaUP.value += newName + "\n";
                 }
             }
-            for (var j = 0; j < feedBacks.length; j++) {
-                newName = feedBacks[i];
-                const textareaUP = document.getElementById('feedbackList3');
-                textareaUP.value += newName + "\n";
-            }
+            // for (var j = 0; j < feedBacks.length; j++) {
+            //     newName = feedBacks[j];
+            //     const textareaUP = document.getElementById('feedbackList3');
+            //     textareaUP.value += newName + "\n";
+            // }
         }
         if (alternatives[i]["noAlter"] == 4){
             var alt4  = alternatives[i];
@@ -147,11 +161,11 @@ function processAlternative(result) {
                     textareaUP.value += newName + "\n";
                 }
             }
-            for (var j = 0; j < feedBacks.length; j++) {
-                newName = feedBacks[i];
-                const textareaUP = document.getElementById('feedbackList4');
-                textareaUP.value += newName + "\n";
-            }
+            // for (var j = 0; j < feedBacks.length; j++) {
+            //     newName = feedBacks[j];
+            //     const textareaUP = document.getElementById('feedbackList4');
+            //     textareaUP.value += newName + "\n";
+            // }
         }
         if (alternatives[i]["noAlter"] == 5){
             var alt5  = alternatives[i];
@@ -176,11 +190,11 @@ function processAlternative(result) {
                     textareaUP.value += newName + "\n";
                 }
             }
-            for (var j = 0; j < feedBacks.length; j++) {
-                newName = feedBacks[i];
-                const textareaUP = document.getElementById('feedbackList5');
-                textareaUP.value += newName + "\n";
-            }
+            // for (var j = 0; j < feedBacks.length; j++) {
+            //     newName = feedBacks[j];
+            //     const textareaUP = document.getElementById('feedbackList5');
+            //     textareaUP.value += newName + "\n";
+            // }
         }
         upVotes  = [];
         downVotes  = [];
@@ -259,4 +273,18 @@ function hideButtons(){
     document.getElementById("finalize-b4").style.visibility = 'hidden'
     document.getElementById("finalize-b5").style.visibility = 'hidden'
 
+    document.getElementById("finalize-label1").style.visibility = 'hidden'
+    document.getElementById("finalize-label2").style.visibility = 'hidden'
+    document.getElementById("finalize-label3").style.visibility = 'hidden'
+    document.getElementById("finalize-label4").style.visibility = 'hidden'
+    document.getElementById("finalize-label5").style.visibility = 'hidden'
+}
+function setFinalAlt(result){
+    var js = JSON.parse(result);
+    var alternatives = js["alt"]
+    for (var i = 0; i< alternatives.length; i++){
+        if (alternatives[i]["isFinalAlternative"]){
+            finalAlt = alternatives[i]["noAlter"];
+        }
+    }
 }

@@ -33,7 +33,7 @@ function processFeedback(result) {
                 if (feedbacks.length > 0) {
                     for (let i = 0; i < feedbacks.length; i++) {
                         temp = "";
-                        temp += "Feedback #" + i.toString() + ": ";
+                        temp += "Feedback #" + (i+1).toString() + ": ";
                         //temp += "FeedbackID: " + feedbacks[i]["feedBackID"] + "; ";
                         temp += "Timestamp: " + feedbacks[i]["dateCreated"] + "; ";
                         temp += "Owner: " + feedbacks[i]["username"] + "; ";
@@ -57,7 +57,7 @@ function processFeedback(result) {
                 if (feedbacks.length > 0) {
                     for (let i = 0; i < feedbacks.length; i++) {
                         temp = "";
-                        temp += "Feedback #" + i.toString() + ": ";
+                        temp += "Feedback #" + (i+1).toString() + ": ";
                         //temp += "FeedbackID: " + feedbacks[i]["feedBackID"] + "; ";
                         temp += "Timestamp: " + feedbacks[i]["dateCreated"] + "; ";
                         temp += "Owner: " + feedbacks[i]["username"] + "; ";
@@ -81,7 +81,7 @@ function processFeedback(result) {
                 if (feedbacks.length > 0) {
                     for (let i = 0; i < feedbacks.length; i++) {
                         temp = "";
-                        temp += "Feedback #" + i.toString() + ": ";
+                        temp += "Feedback #" + (i+1).toString() + ": ";
                         //temp += "FeedbackID: " + feedbacks[i]["feedBackID"] + "; ";
                         temp += "Timestamp: " + feedbacks[i]["dateCreated"] + "; ";
                         temp += "Owner: " + feedbacks[i]["username"] + "; ";
@@ -105,7 +105,7 @@ function processFeedback(result) {
                 if (feedbacks.length > 0) {
                     for (let i = 0; i < feedbacks.length; i++) {
                         temp = "";
-                        temp += "Feedback #" + i.toString() + ": ";
+                        temp += "Feedback #" + (i+1).toString() + ": ";
                         //temp += "FeedbackID: " + feedbacks[i]["feedBackID"] + "; ";
                         temp += "Timestamp: " + feedbacks[i]["dateCreated"] + "; ";
                         temp += "Owner: " + feedbacks[i]["username"] + "; ";
@@ -129,7 +129,7 @@ function processFeedback(result) {
                 if (feedbacks.length > 0) {
                     for (let i = 0; i < feedbacks.length; i++) {
                         temp = "";
-                        temp += "Feedback #" + i.toString() + ": ";
+                        temp += "Feedback #" + (i+1).toString() + ": ";
                         //temp += "FeedbackID: " + feedbacks[i]["feedBackID"] + "; ";
                         temp += "Timestamp: " + feedbacks[i]["dateCreated"] + "; ";
                         temp += "Owner: " + feedbacks[i]["username"] + "; ";

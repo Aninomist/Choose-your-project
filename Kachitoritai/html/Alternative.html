@@ -25,7 +25,7 @@
 <h5 id="currentAltDes"></h5>
 <script>
 
-
+    var finalAlt;
     const queryString = window.location.search;
     console.log(queryString);
     const urlParams = new URLSearchParams(queryString);
@@ -90,7 +90,7 @@
                             </div>
                         </div>
                     </div><br>
-                    <label for="finalize-b1">Please CLICK THIS BUTTON if you choose this alternative</label><br>
+                    <label for="finalize-b1" id="finalize-label1" style='visibility: visible'>Please CLICK THIS BUTTON if you choose this alternative</label><br>
                     <input type="button" value="Submit" id="finalize-b1" style='visibility: visible' onclick="Javascript:handleFinalizeClick(1)">
                     <!--
                      <label for="feedback1">Please input your feedback about this alternative here</label><br>
@@ -129,7 +129,7 @@
                             </div>
                         </div>
                     </div><br>
-                    <label for="finalize-b2">Please CLICK THIS BUTTON if you choose this alternative</label><br>
+                    <label for="finalize-b2" id="finalize-label2" style='visibility: visible'>Please CLICK THIS BUTTON if you choose this alternative</label><br>
                     <input type="button" value="Submit" id="finalize-b2" style='visibility: visible' onclick="Javascript:handleFinalizeClick(2)">
                     <!--
                      <label for="feedback2">Please input your feedback about this alternative here</label><br>
@@ -167,7 +167,7 @@
                             </div>
                         </div>
                     </div><br>
-                    <label for="finalize-b3">Please CLICK THIS BUTTON if you choose this alternative</label><br>
+                    <label for="finalize-b3" id="finalize-label3" style='visibility: visible'>Please CLICK THIS BUTTON if you choose this alternative</label><br>
                     <input type="button" value="Submit" id="finalize-b3" style='visibility: visible' onclick="Javascript:handleFinalizeClick(3)">
                     <!--
                         <label for="feedback3">Please input your feedback about this alternative here</label><br>
@@ -205,7 +205,7 @@
                             </div>
                         </div>
                     </div><br>
-                    <label for="finalize-b4">Please CLICK THIS BUTTON if you choose this alternative</label><br>
+                    <label for="finalize-b4" id="finalize-label4" style='visibility: visible'>Please CLICK THIS BUTTON if you choose this alternative</label><br>
                     <input type="button" value="Submit" id="finalize-b4" style='visibility: visible' onclick="Javascript:handleFinalizeClick(4)">
                     <!--
                     <label for="feedback4">Please input your feedback about this alternative here</label><br>
@@ -243,7 +243,7 @@
                             </div>
                         </div>
                     </div><br>
-                    <label for="finalize-b5">Please CLICK THIS BUTTON if you choose this alternative</label><br>
+                    <label for="finalize-b5" id="finalize-label5" style='visibility: visible'>Please CLICK THIS BUTTON if you choose this alternative</label><br>
                     <input type="button" value="Submit" id="finalize-b5" style='visibility: visible' onclick="Javascript:handleFinalizeClick(5)">
                     <!--
                     <label for="feedback5">Please input your feedback about this alternative here</label><br>
