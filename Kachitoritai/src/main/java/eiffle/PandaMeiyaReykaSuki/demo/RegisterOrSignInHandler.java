@@ -40,7 +40,7 @@ public class RegisterOrSignInHandler implements RequestHandler<RegisterOrSignInR
 					if (checkPassword(req.username,req.password)) {
 						response = new RegisterOrSignInResponse(req.username, new AlternativeController().getListAlternative(req.choiceID));
 					} else {
-						response = new RegisterOrSignInResponse("Username and password does not match");
+						response = new RegisterOrSignInResponse("Username and password does not match", 400);
 					}
 				} else if (status == 1) {
 					response = new RegisterOrSignInResponse("Username already exist, choose a new one", 400);

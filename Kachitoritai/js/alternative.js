@@ -7,6 +7,10 @@ function processAlternative(result) {
 
     console.log("result:" + result);
     var js = JSON.parse(result);
+    if (js["completed"] === true){
+        alert ("Choice already Concluded, can't vote and comment anymore");
+        //hideButtons();
+    }
     var alternatives = js["alt"];
     var length = alternatives.length;
     var upVotes
@@ -181,6 +185,10 @@ function processAlternative(result) {
         upVotes  = [];
         downVotes  = [];
     }
+    if (js["completed"] === true){
+        //alert ("Choice already Concluded, can't vote and comment anymore");
+        hideButtons();
+    }
 }
 function getAlternative(choiceID){
     var xhr = new XMLHttpRequest();
@@ -244,5 +252,11 @@ function hideButtons(){
     document.getElementById("feedback-b3").style.visibility = 'hidden'
     document.getElementById("feedback-b4").style.visibility = 'hidden'
     document.getElementById("feedback-b5").style.visibility = 'hidden'
+
+    document.getElementById("finalize-b1").style.visibility = 'hidden'
+    document.getElementById("finalize-b2").style.visibility = 'hidden'
+    document.getElementById("finalize-b3").style.visibility = 'hidden'
+    document.getElementById("finalize-b4").style.visibility = 'hidden'
+    document.getElementById("finalize-b5").style.visibility = 'hidden'
 
 }

@@ -38,4 +38,17 @@ public class CreateMemberTest extends LambdaTest {
 			Assert.fail("Invalid:" + ioe.getMessage());
 		}
 	}
+	@Test
+	public void test2() {
+		
+		RegisterOrSignInRequest rosir = new RegisterOrSignInRequest("24e5526d-131a-4bc8-92fe-2941f46f4f5b", "wtf");
+
+		String SAMPLE_INPUT_STRING = new Gson().toJson(rosir);
+
+		try {
+			testSuccessInput(SAMPLE_INPUT_STRING);
+		} catch (IOException ioe) {
+			Assert.fail("Invalid:" + ioe.getMessage());
+		}
+	}
 }

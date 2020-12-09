@@ -9,8 +9,8 @@ function processResponse(result) {
     var computation = js["result"];
 
     // Update computation result
-    document.createChoice.result.value = computation;
-	console.log(computation);
+    //document.createChoice.result.value = computation;
+	//console.log(computation);
 }
 
 function handleCreateClick(e) {

@@ -49,13 +49,13 @@ function handleVoteClick(number, flag, username){
 
                         var responseJs = JSON.parse(xhr.responseText);
                         //choiceID = responseJs.response;
-                        reponseCode = responseJs.httpCode;
+                        responseCode = responseJs.httpCode;
 
-                        if (reponseCode == 200) {
+                        if (responseCode == 200) {
                             getAlternative(choiceID);
                         } else if( responseCode == 405){
 							alert ("Choice already Concluded, can't vote anymore");
-							//hide buttons
+                            hideButtons();
 						}
 							else
 						{

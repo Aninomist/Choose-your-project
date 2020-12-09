@@ -34,12 +34,12 @@ function handleFinalizeClick(number){
                 // BIIIIG OOOF begins here
                 data = {};
                 data["altID"] = altID;
-                data["username"] = username;
-                data["isUpVote"] = flag;
+                data["choiceID"] = choiceID;
+
                 js = JSON.stringify(data);
 
                 xhr = new XMLHttpRequest();
-                xhr.open("POST", vote_url, true);
+                xhr.open("POST", finalizeChoice_url, true);
                 xhr.send(js);
 
                 xhr.onloadend = function () {

@@ -67,21 +67,21 @@
                     <input type="text" id=alt1 name="alt" readonly><br><br>
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-6" style="width: 400px;">
+                            <div class="col-md-4">
                                 <label for="upvote1">number of people upvoted this alternative:</label><br>
                                 <input type="text" id=upvote1 name="upvote" readonly><br><br>
                                 <label for="upvoteUser1">list of people who upvoted this alternative:</label> <br>
                                 <textarea id="upvoteUser1" rows="10" cols="32" readonly></textarea> <br><br>
                                 <input type="button" value="Upvote" id="upvote-b1" style='visibility: visible' onClick="Javascript:handleVoteClick(1, true, username)"><br><br>
                             </div>
-                            <div class="col-md-6" style="width: 400px;">
+                            <div class="col-md-4">
                                 <label for="downvote1">number of people who downvoted this alternative:</label><br>
                                 <input type="text" id=downvote1 name="downvote" readonly><br><br>
                                 <label for="downvoteUser1">list of people downvoted this alternative:</label> <br>
                                 <textarea id="downvoteUser1" rows="10" cols="32" readonly></textarea> <br><br>
                                 <input type="button" value="Downvote" id="downvote-b1" style='visibility: visible' onClick="Javascript:handleVoteClick(1, false, username)"><br><br>
                             </div>
-                            <div class="col-md-6" style="width: 400px;">
+                            <div class="col-md-4">
                                 <label for="feedbackList1">list of people's feedback:</label><br>
                                 <textarea id="feedbackList1" rows="10" cols="32" readonly></textarea> <br><br>
                                 <label for="feedbackInput1">enter your feedback:</label> <br>
@@ -89,9 +89,9 @@
                                 <input type="button"  value="Feedback" id="feedback-b1" style='visibility: visible' onclick="Javascript:handleFeedbackClick(username, 1, document.getElementById('feedbackInput1').value)"><br><br>
                             </div>
                         </div>
-                    </div>
-                    <input type="text" id="finalize1" style="width: 400px;">
-                    <input type="button" value="Submit" id="finalize-b1" style='visibility: visible' onclick="Javascript:handleFeedbackClick(1,document.getElementById('feedback1'))">
+                    </div><br>
+                    <label for="finalize-b1">Please CLICK THIS BUTTON if you choose this alternative</label><br>
+                    <input type="button" value="Submit" id="finalize-b1" style='visibility: visible' onclick="Javascript:handleFinalizeClick(1)">
                     <!--
                      <label for="feedback1">Please input your feedback about this alternative here</label><br>
                      <input type="text" id="feedback1" style="width: 400px;">
@@ -106,21 +106,21 @@
                     <input type="text" id=alt2 name="alt" readonly><br><br>
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-6" style="width: 400px;">
+                            <div class="col-md-4">
                                 <label for="upvote2">number of people upvoted this alternative:</label><br>
                                 <input type="text" id=upvote2 name="upvote" readonly><br><br>
                                 <label for="upvoteUser2">list of people who upvoted this alternative:</label> <br>
                                 <textarea id="upvoteUser2" rows="10" cols="32" readonly></textarea> <br><br>
                                 <input type="button" value="Upvote" id="upvote-b2" style='visibility: visible' onClick="Javascript:handleVoteClick(2, true, username)"><br><br>
                             </div>
-                            <div class="col-md-6" style="width: 400px;">
+                            <div class="col-md-4">
                                 <label for="downvote2">number of people who downvoted this alternative:</label><br>
                                 <input type="text" id=downvote2 name="downvote" readonly><br><br>
                                 <label for="downvoteUser2">list of people downvoted this alternative:</label> <br>
                                 <textarea id="downvoteUser2" rows="10" cols="32" readonly></textarea> <br><br>
                                 <input type="button" value="Downvote" id="downvote-b2" style='visibility: visible' onClick="Javascript:handleVoteClick(2, false, username)"><br><br>
                             </div>
-                            <div class="col-md-6" style="width: 400px;">
+                            <div class="col-md-4">
                                 <label for="feedbackList2">list of people's feedback:</label><br>
                                 <textarea id="feedbackList2" rows="10" cols="32" readonly></textarea> <br><br>
                                 <label for="feedbackInput2">enter your feedback:</label> <br>
@@ -128,7 +128,9 @@
                                 <input type="button"  value="Feedback" id="feedback-b2" style='visibility: visible' onclick="Javascript:handleFeedbackClick(username, 2, document.getElementById('feedbackInput2').value)"><br><br>
                             </div>
                         </div>
-                    </div>
+                    </div><br>
+                    <label for="finalize-b2">Please CLICK THIS BUTTON if you choose this alternative</label><br>
+                    <input type="button" value="Submit" id="finalize-b2" style='visibility: visible' onclick="Javascript:handleFinalizeClick(2)">
                     <!--
                      <label for="feedback2">Please input your feedback about this alternative here</label><br>
                      <input type="text" id="feedback2">
@@ -142,21 +144,21 @@
                     <input type="text" id=alt3 name="alt" readonly><br><br>
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-6" style="width: 400px;">
+                            <div class="col-md-4">
                                 <label for="upvote3">number of people upvoted this alternative:</label><br>
                                 <input type="text" id=upvote3 name="upvote" readonly><br><br>
                                 <label for="upvoteUser3">list of people who upvoted this alternative:</label> <br>
                                 <textarea id="upvoteUser3" rows="10" cols="32" readonly></textarea> <br><br>
                                 <input type="button" value="Upvote" id="upvote-b3" style='visibility: visible' onClick="Javascript:handleVoteClick(3, true, username)"><br><br>
                             </div>
-                            <div class="col-md-6" style="width: 400px;">
+                            <div class="col-md-4">
                                 <label for="downvote3">number of people who downvoted this alternative:</label><br>
                                 <input type="text" id=downvote3 name="downvote" readonly><br><br>
                                 <label for="downvoteUser3">list of people downvoted this alternative:</label> <br>
                                 <textarea id="downvoteUser3" rows="10" cols="32" readonly></textarea> <br><br>
                                 <input type="button" value="Downvote" id="downvote-b3" style='visibility: visible' onClick="Javascript:handleVoteClick(3, false, username)"><br><br>
                             </div>
-                            <div class="col-md-6" style="width: 400px;">
+                            <div class="col-md-4">
                                 <label for="feedbackList3">list of people's feedback:</label><br>
                                 <textarea id="feedbackList3" rows="10" cols="32" readonly></textarea> <br><br>
                                 <label for="feedbackInput3">enter your feedback:</label> <br>
@@ -164,7 +166,9 @@
                                 <input type="button"  value="Feedback" id="feedback-b3" style='visibility: visible' onclick="Javascript:handleFeedbackClick(username, 3, document.getElementById('feedbackInput3').value)"><br><br>
                             </div>
                         </div>
-                    </div>
+                    </div><br>
+                    <label for="finalize-b3">Please CLICK THIS BUTTON if you choose this alternative</label><br>
+                    <input type="button" value="Submit" id="finalize-b3" style='visibility: visible' onclick="Javascript:handleFinalizeClick(3)">
                     <!--
                         <label for="feedback3">Please input your feedback about this alternative here</label><br>
                         <input type="text" id="feedback3">
@@ -178,21 +182,21 @@
                     <input type="text" id=alt4 name="alt" readonly><br><br>
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-6" style="width: 400px;">
+                            <div class="col-md-4">
                                 <label for="upvote4">number of people upvoted this alternative:</label><br>
                                 <input type="text" id=upvote4 name="upvote" readonly><br><br>
                                 <label for="upvoteUser4">list of people who upvoted this alternative:</label> <br>
                                 <textarea id="upvoteUser4" rows="10" cols="32" readonly></textarea> <br><br>
                                 <input type="button" value="Upvote" id="upvote-b4" style='visibility: visible' onClick="Javascript:handleVoteClick(4, true, username)"><br><br>
                             </div>
-                            <div class="col-md-6" style="width: 400px;">
+                            <div class="col-md-4">
                                 <label for="downvote4">number of people who downvoted this alternative:</label><br>
                                 <input type="text" id=downvote4 name="downvote" readonly><br><br>
                                 <label for="upvoteUser4">list of people downvoted this alternative:</label> <br>
                                 <textarea id="downvoteUser4" rows="10" cols="32" readonly></textarea> <br><br>
                                 <input type="button" value="Downvote" id="downvote-b4" style='visibility: visible' onClick="Javascript:handleVoteClick(4, false, username)"><br><br>
                             </div>
-                            <div class="col-md-6" style="width: 400px;">
+                            <div class="col-md-4">
                                 <label for="feedbackList4">list of people's feedback:</label><br>
                                 <textarea id="feedbackList4" rows="10" cols="32" readonly></textarea> <br><br>
                                 <label for="feedbackInput4">enter your feedback:</label> <br>
@@ -200,7 +204,9 @@
                                 <input type="button"  value="Feedback" id="feedback-b4" style='visibility: visible' onclick="Javascript:handleFeedbackClick(username, 4, document.getElementById('feedbackInput4').value)"><br><br>
                             </div>
                         </div>
-                    </div>
+                    </div><br>
+                    <label for="finalize-b4">Please CLICK THIS BUTTON if you choose this alternative</label><br>
+                    <input type="button" value="Submit" id="finalize-b4" style='visibility: visible' onclick="Javascript:handleFinalizeClick(4)">
                     <!--
                     <label for="feedback4">Please input your feedback about this alternative here</label><br>
                     <input type="text" id="feedback4">
@@ -214,21 +220,21 @@
                     <input type="text" id=alt5 name="alt" readonly><br><br>
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-6" style="width: 400px;">
+                            <div class="col-md-4">
                                 <label for="upvote5">number of people upvoted this alternative:</label><br>
                                 <input type="text" id=upvote5 name="upvote" readonly><br><br>
                                 <label for="upvoteUser5">list of people who upvoted this alternative:</label> <br>
                                 <textarea id="upvoteUser5" rows="10" cols="32" readonly></textarea> <br><br>
                                 <input type="button" value="Upvote" id="upvote-b5" style='visibility: visible' onClick="Javascript:handleVoteClick(5, true, username)"><br><br>
                             </div>
-                            <div class="col-md-6" style="width: 400px;">
+                            <div class="col-md-4">
                                 <label for="downvote5">number of people who downvoted this alternative:</label><br>
                                 <input type="text" id=downvote5 name="downvote" readonly><br><br>
                                 <label for="upvoteUser5">list of people downvoted this alternative:</label> <br>
                                 <textarea id="downvoteUser5" rows="10" cols="32" readonly></textarea> <br><br>
                                 <input type="button" value="Downvote" id="downvote-b5" style='visibility: visible' onClick="Javascript:handleVoteClick(5, false, username)"><br><br>
                             </div>
-                            <div class="col-md-6" style="width: 400px;">
+                            <div class="col-md-4">
                                 <label for="feedbackList5">list of people's feedback:</label><br>
                                 <textarea id="feedbackList5" rows="10" cols="32" readonly></textarea> <br><br>
                                 <label for="feedbackInput5">enter your feedback:</label> <br>
@@ -236,7 +242,9 @@
                                 <input type="button"  value="Feedback" id="feedback-b5" style='visibility: visible' onclick="Javascript:handleFeedbackClick(username, 5, document.getElementById('feedbackInput5').value)"><br><br>
                             </div>
                         </div>
-                    </div>
+                    </div><br>
+                    <label for="finalize-b5">Please CLICK THIS BUTTON if you choose this alternative</label><br>
+                    <input type="button" value="Submit" id="finalize-b5" style='visibility: visible' onclick="Javascript:handleFinalizeClick(5)">
                     <!--
                     <label for="feedback5">Please input your feedback about this alternative here</label><br>
                     <input type="text" id="feedback5">
