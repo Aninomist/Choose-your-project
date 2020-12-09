@@ -9,6 +9,7 @@
     <script type="text/javascript" src="../js/vote.js"></script>
     <script type="text/javascript" src="../js/feedback.js"></script>
     <script type="text/javascript" src="../js/alternative.js"></script>
+    <script type="text/javascript" src="../js/finalize.js"></script>
     <!--<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -89,6 +90,8 @@
                             </div>
                         </div>
                     </div>
+                    <input type="text" id="finalize1" style="width: 400px;">
+                    <input type="button" value="Submit" id="finalize-b1" style='visibility: visible' onclick="Javascript:handleFeedbackClick(1,document.getElementById('feedback1'))">
                     <!--
                      <label for="feedback1">Please input your feedback about this alternative here</label><br>
                      <input type="text" id="feedback1" style="width: 400px;">
