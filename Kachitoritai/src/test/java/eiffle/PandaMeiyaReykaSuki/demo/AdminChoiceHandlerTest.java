@@ -26,7 +26,7 @@ public class AdminChoiceHandlerTest extends LambdaTest {
 	    }
 	
 	 @Test
-	    public void testDeleteChoice4DaysOld() {
+	    public void testGetAllChoices() {
 	    	
 	    	AdminChoiceRequest ccr = new AdminChoiceRequest(-1);
 	    	
@@ -42,4 +42,23 @@ public class AdminChoiceHandlerTest extends LambdaTest {
 	         }
 
 	    }
+	 
+	 @Test
+	    public void testDeleteChoice200DaysOld() {
+	    	
+	    	AdminChoiceRequest ccr = new AdminChoiceRequest(200);
+	    	
+	    	
+	    	String SAMPLE_INPUT_STRING = new Gson().toJson(ccr);
+	    	
+	    	System.out.println(SAMPLE_INPUT_STRING);
+	    	
+	    	 try {
+	         	testSuccessInput(SAMPLE_INPUT_STRING);
+	         } catch (IOException ioe) {
+	         	Assert.fail("Invalid:" + ioe.getMessage());
+	         }
+
+	    }
 }
+

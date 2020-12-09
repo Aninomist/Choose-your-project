@@ -13,4 +13,10 @@ public class VoteRequest {
 	
 	public boolean getIsUpVote( ) { return isUpVote; }
 	public void setIsUpVote(boolean isUpVote) { this.isUpVote = isUpVote; }
+	
+	public VoteRequest(String altID, String username, boolean isUpVote) {
+		this.altID = altID;
+		this.username = username;
+		this.isUpVote = isUpVote;
+	}
 }
