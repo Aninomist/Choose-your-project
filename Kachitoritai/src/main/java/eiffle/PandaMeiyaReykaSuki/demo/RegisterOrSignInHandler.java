@@ -26,37 +26,38 @@ public class RegisterOrSignInHandler implements RequestHandler<RegisterOrSignInR
 		RegisterOrSignInResponse response;
 
 		try {
-			if(!checkChoiceExist(req.choiceID)) {
-				response = new RegisterOrSignInResponse("Choice does not exist", 400); 
-			} else {				
-				/*status for checkMemeber Exist:
-				 * 0: username exist, and match the given choiceID
-				 * 1: username exist, but deson't mathch the given choiceID
-				 * 2: username does not exist;
-				 */
-				int status = checkMemberExist(req.username, req.choiceID);
-				if(status == 0) {
-					//check password
-					if (checkPassword(req.username,req.password)) {
-						response = new RegisterOrSignInResponse(req.username, new AlternativeController().getListAlternative(req.choiceID));
-					} else {
-						response = new RegisterOrSignInResponse("Username and password does not match", 400);
-					}
-				} else if (status == 1) {
-					response = new RegisterOrSignInResponse("Username already exist, choose a new one", 400);
-				} else {
-					//createMemebr
-					if (createMember(req.username, req.choiceID, req.password)) {
-						response = new RegisterOrSignInResponse(req.username, new AlternativeController().getListAlternative(req.choiceID));
-					} else {
-						response = new RegisterOrSignInResponse("Memeber Limit Already reached", 405);
-					}
-				}
-			}
-	
-		} catch (Exception e) {
-			response = new RegisterOrSignInResponse("unable to create user Exception caught:(" + e.getMessage() + ")", 400);
-		}
+            if(!checkChoiceExist(req.choiceID)) {
+                response = new RegisterOrSignInResponse("Choice does not exist", 400); 
+            } else {                
+                /*status for checkMemeber Exist:
+                 * 0: username exist, and match the given choiceID
+                 * 1: username exist, but deson't mathch the given choiceID
+                 * 2: username does not exist;
+                 */
+                int status = checkMemberExist(req.username, req.choiceID);
+                if(status == 0) {
+                    //check password
+                    if (checkPassword(req.username,req.password)) {
+                        response = new RegisterOrSignInResponse(req.username, new AlternativeController().getListAlternative(req.choiceID));
+                    } else {
+                        response = new RegisterOrSignInResponse("Username and password does not match", 401);
+                    }
+                } else if (status == 1) {
+                    response = new RegisterOrSignInResponse("Username already exist, choose a new one", 402);
+                } else {
+                    //createMemebr
+                    if (createMember(req.username, req.choiceID, req.password)) {
+                        response = new RegisterOrSignInResponse(req.username, new AlternativeController().getListAlternative(req.choiceID));
+                    } else {
+                        response = new RegisterOrSignInResponse("Memeber Limit Already reached", 405);
+                    }
+                }
+            }
+    
+        } catch (Exception e) {
+            response = new RegisterOrSignInResponse("unable to create user Exception caught:(" + e.getMessage() + ")", 400);
+        }
+		
 
 		return response;
 	}
