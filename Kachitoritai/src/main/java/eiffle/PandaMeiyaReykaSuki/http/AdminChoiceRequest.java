@@ -1,14 +1,14 @@
 package eiffle.PandaMeiyaReykaSuki.http;
 
 public class AdminChoiceRequest {
-	public int daysToDelete;
+	public float daysToDelete;
 	
-	public int getDaysToDelete() {return daysToDelete;}
-	public void setDaysToDelete(int daysToDelete) {this.daysToDelete = daysToDelete;}
+	public float getDaysToDelete() {return daysToDelete;}
+	public void setDaysToDelete(float daysToDelete) {this.daysToDelete = daysToDelete;}
 	
 	public AdminChoiceRequest() {}
 	
-	public AdminChoiceRequest(int daysToDelete) {
+	public AdminChoiceRequest(float daysToDelete) {
 		this.daysToDelete = daysToDelete;
 	}
 }

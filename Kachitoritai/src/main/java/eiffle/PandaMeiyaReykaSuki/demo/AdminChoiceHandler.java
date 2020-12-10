@@ -32,15 +32,27 @@ public class AdminChoiceHandler implements RequestHandler<AdminChoiceRequest, Ad
 	
 	
 	
-	boolean deleteNumDaysOldChoices(int num) throws Exception {
+	boolean deleteNumDaysOldChoices(float daysToDelete) throws Exception {
 		if (logger != null) { logger.log("in deleteNumDaysOldChoices"); }
     	ChoiceDAO dao = new ChoiceDAO();
     	
     	List<Choice> choices= dao.getAllChoices();
     	List<String> toDelete = new ArrayList<>();
     	
-    	LocalDateTime staleDate = LocalDateTime.now().minusDays(num);
+    	int days = (int) Math.floor(daysToDelete);
+    	float remainder = (daysToDelete - days)*24; //in hours
+    	int hours = (int) Math.floor(remainder);
+    	remainder = (remainder - hours)*60; //in minutes
+    	int minutes = (int) Math.floor(remainder);
+    	remainder = (remainder - minutes)*60; //in seconds
+    	int seconds = (int) Math.floor(remainder);
     	
+    	
+    	LocalDateTime staleDate = LocalDateTime.now().minusDays(days);
+    	staleDate = staleDate.minusHours(hours);
+    	staleDate = staleDate.minusMinutes(minutes);
+    	staleDate = staleDate.minusSeconds(seconds);
+
     	for(Choice choice : choices) {
     		if(LocalDateTime.parse(choice.dateCreated).isBefore(staleDate))
     			toDelete.add(choice.choiceID);
