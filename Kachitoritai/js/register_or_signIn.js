@@ -48,6 +48,12 @@ function handleRegisterClick(e) {
                 alert ("unable to process request");
             } else if (reponseCode == 406) {
                 alert ("not accepted, alternertaive need to be between 2 and 5");
+            } else if (reponseCode == 405) {
+                alert ("Memeber Limit Already reached");
+            } else if (reponseCode == 401) {
+                alert ("Username and password does not match");
+            } else if (reponseCode == 402) {
+                alert ("Username already exist, choose a new one");
             }
         } else {
             processResponse("N/A");

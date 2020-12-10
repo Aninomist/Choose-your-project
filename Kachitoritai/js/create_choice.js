@@ -99,7 +99,7 @@ function handleCreateClick(e) {
 			} else if (reponseCode == 400) {
     			alert ("unable to process request");
 			} else if (reponseCode == 406) {
-				alert ("not accepted, alternertaive need to be between 2 and 5");
+				alert ("Unable to create choice, number of alternatives can only be between 2 and 5, Member has to be greater than 0, and Choice Description cannot be empty");
 			}
 		} else {
     	processResponse("N/A");

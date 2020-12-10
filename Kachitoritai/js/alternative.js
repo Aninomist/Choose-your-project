@@ -10,8 +10,12 @@ function processAlternative(result) {
     processFeedback(result);
     if (js["completed"] === true){
         setFinalAlt(result)
+        var str = document.getElementById("currentAltDes").innerHTML;
+        var theString = "Alternative " + finalAlt.toString();
+        var res = str.replace("not decided yet", theString);
+        document.getElementById("currentAltDes").innerHTML = res;
         var alertString = "Choice already Concluded, can't vote and comment anymore\nThe final alternative is alternative " + finalAlt.toString();
-        alert (alertString);
+        //alert (alertString);
         //hideButtons();
     }
     var alternatives = js["alt"];

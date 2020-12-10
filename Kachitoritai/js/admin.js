@@ -6,7 +6,7 @@ function processChoice(result, time) {
     var newChoice;
 
     const textarea = document.getElementById('ListOfChoices');
-    textarea.value = "Choice# " + "ChoiceID                               " + "dateCreated               " + "completed? \n";
+    textarea.value = "Choice# " + "ChoiceID                               " + "dateCreated               " + "completed?   description\n";
     if (length == 0){
         textarea.value = "There is currently no Choice created at all!";
         if (time !== -1) {
@@ -20,7 +20,8 @@ function processChoice(result, time) {
         newChoice += i.toString() + "       ";
         newChoice += choices[i]["choiceID"] + "   ";
         newChoice += choices[i]["dateCreated"] + "   ";
-        newChoice += choices[i]["completed"] + "\n\n";
+        newChoice += choices[i]["completed"] + "        ";
+        newChoice += choices[i]["description"] + "\n\n";
         textarea.value += newChoice;
     }
     if (time !== -1) {
